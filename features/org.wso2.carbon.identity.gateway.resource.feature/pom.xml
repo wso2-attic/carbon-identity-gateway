@@ -106,7 +106,7 @@
                             <bundles>
                                 <bundle>
                                     <symbolicName>org.wso2.carbon.identity.gateway.resource</symbolicName>
-                                    <version>${identity.gateway.resource.version}</version>
+                                    <version>${project.version}</version>
                                 </bundle>
                             </bundles>
                             <importFeatures>

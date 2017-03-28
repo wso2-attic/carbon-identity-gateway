@@ -15,14 +15,13 @@
   ~ limitations under the License.
   -->
 
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
         <groupId>org.wso2.carbon.identity.gateway</groupId>
         <artifactId>org.wso2.carbon.identity.gateway.tests</artifactId>
         <relativePath>../pom.xml</relativePath>
-        <version>0.1.0-SNAPSHOT</version>
+        <version>0.1.0</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -84,18 +83,18 @@
 
                                     <target xmlns:jacoco="antlib:org.jacoco.ant">
                                         <taskdef uri="antlib:org.jacoco.ant" resource="org/jacoco/ant/antlib.xml">
-                                            <classpath path="${project.build.directory}"/>
+                                            <classpath path="${project.build.directory}" />
                                         </taskdef>
                                         <jacoco:report>
                                             <executiondata>
                                                 <fileset dir="../module-tests/target">
-                                                    <include name="jacoco.exec"/>
+                                                    <include name="jacoco.exec" />
                                                 </fileset>
                                                 <fileset dir="../../components/org.wso2.carbon.identity.gateway/target">
-                                                    <include name="jacoco.exec"/>
+                                                    <include name="jacoco.exec" />
                                                 </fileset>
                                                 <fileset dir="../../components/org.wso2.carbon.identity.gateway.api/target">
-                                                    <include name="jacoco.exec"/>
+                                                    <include name="jacoco.exec" />
                                                 </fileset>
                                             </executiondata>
                                             <structure name="Identity Server Gateway Tests">
@@ -106,19 +105,19 @@
                                                         <exclude name="**/*LocalAuthenticationRequestBuilderFactory.class" />
                                                         <exclude name="**/*LocalUser.class" />
                                                         <exclude name="**/*RequestPathAuthenticatorContext.class" />
-                                                        <exclude name="**/org/wso2/carbon/identity/gateway/exception/*"/>
-                                                        <exclude name="**/org/wso2/carbon/identity/gateway/local/demo/*"/>
+                                                        <exclude name="**/org/wso2/carbon/identity/gateway/exception/*" />
+                                                        <exclude name="**/org/wso2/carbon/identity/gateway/local/demo/*" />
                                                     </fileset>
                                                     <fileset dir="../../components/org.wso2.carbon.identity.gateway.api/target/classes">
                                                         <exclude name="**/*Constants.class" />
                                                         <exclude name="**/*Exception.class" />
                                                     </fileset>
-                                                    <fileset dir="../../components/org.wso2.carbon.identity.gateway.common/target/classes" >
+                                                    <fileset dir="../../components/org.wso2.carbon.identity.gateway.common/target/classes">
                                                         <exclude name="**/*Constants.class" />
                                                         <exclude name="**/*Exception.class" />
                                                         <!-- excluding model classes since setters are not getting called ever. We load these objects from a yaml -->
-                                                        <exclude name="**/org/wso2/carbon/identity/gateway/common/model/sp/*"/>
-                                                        <exclude name="**/org/wso2/carbon/identity/gateway/common/model/idp/*"/>
+                                                        <exclude name="**/org/wso2/carbon/identity/gateway/common/model/sp/*" />
+                                                        <exclude name="**/org/wso2/carbon/identity/gateway/common/model/idp/*" />
                                                     </fileset>
                                                     <fileset dir="../../components/org.wso2.carbon.identity.gateway.resource/target/classes">
                                                         <exclude name="**/*Constants.class" />
@@ -132,10 +131,10 @@
                                                     <fileset dir="../../components/org.wso2.carbon.identity.gateway.resource/src" />
                                                 </sourcefiles>
                                             </structure>
-                                            <html destdir="${project.build.directory}/site/jacoco"/>
+                                            <html destdir="${project.build.directory}/site/jacoco" />
                                             <check>
                                                 <rule element="PACKAGE">
-                                                    <limit counter="LINE" value="COVEREDRATIO" minimum="0.65"/>
+                                                    <limit counter="LINE" value="COVEREDRATIO" minimum="0.65" />
                                                 </rule>
                                             </check>
                                         </jacoco:report>

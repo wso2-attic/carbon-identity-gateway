@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2013, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+  ~
+  ~ WSO2 Inc. licenses this file to you under the Apache License,
+  ~ Version 2.0 (the "License"); you may not use this file except
+  ~ in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>org.wso2.carbon.identity.gateway</groupId>
+        <artifactId>carbon-identity-gateway</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>org.wso2.carbon.identity.gateway</artifactId>
+    <packaging>bundle</packaging>
+    <name>WSO2 Carbon - Identity Gateway</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.eclipse.osgi</groupId>
+            <artifactId>org.eclipse.osgi.services</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.msf4j</groupId>
+            <artifactId>msf4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.wso2.carbon.identity.gateway</groupId>
+            <artifactId>org.wso2.carbon.identity.gateway.common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.identity.gateway</groupId>
+            <artifactId>org.wso2.carbon.identity.gateway.api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wso2.carbon.deployment</groupId>
+            <artifactId>org.wso2.carbon.deployment.engine</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wso2.carbon.identity.mgt</groupId>
+            <artifactId>org.wso2.carbon.identity.mgt</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wso2.carbon.identity.mgt</groupId>
+            <artifactId>org.wso2.carbon.identity.claim</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-testng</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>${maven.wagon.ssh.version}</version>
+            </extension>
+        </extensions>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <private.package>org.wso2.carbon.identity.gateway.internal</private.package>
+        <export.package>
+            !org.wso2.carbon.identity.gateway.internal,
+            org.wso2.carbon.identity.gateway.authentication.*,
+            org.wso2.carbon.identity.gateway.cache.*,
+            org.wso2.carbon.identity.gateway.context.*,
+            org.wso2.carbon.identity.gateway.dao.*,
+            org.wso2.carbon.identity.gateway.store.deployer.*,
+            org.wso2.carbon.identity.gateway.exception.*,
+            org.wso2.carbon.identity.gateway.handler.*,
+            org.wso2.carbon.identity.gateway.model.*,
+            org.wso2.carbon.identity.gateway.processor.*,
+            org.wso2.carbon.identity.gateway.request.*,
+            org.wso2.carbon.identity.gateway.service.*,
+            org.wso2.carbon.identity.gateway.store.*,
+            org.wso2.carbon.identity.gateway.util.*,
+            org.wso2.carbon.identity.gateway.local.*
+        </export.package>
+        <import.package>
+            org.osgi.framework.*;version="${osgi.framework.package.import.version.range}",
+            org.wso2.carbon.kernel;version="${carbon.kernel.package.import.version.range}",
+            org.wso2.msf4j.*,
+            org.wso2.carbon.messaging.*,
+            javax.ws.rs.*,
+            org.apache.xerces.util; resolution:=optional,
+            javax.xml.*,
+            org.xml.*,
+            org.w3c.dom.*; resolution:=optional,
+            org.apache.commons.lang.*,
+            org.slf4j.*;version="${slf4j.logging.package.import.version.range}",
+            org.wso2.carbon.kernel.utils.*; version="${carbon.kernel.package.import.version.range}",
+            org.wso2.carbon.identity.common.*; version="${carbon.identity.common.import.version.range}",
+            org.wso2.carbon.identity.gateway.api.*; version="${identity.gateway.api.import.version.range}",
+            org.wso2.carbon.identity.gateway.common.*; version="${identity.gateway.common.import.version.range}",
+            org.wso2.carbon.identity.claim.*; version="${carbon.identity.mgt.import.version.range}",
+            org.wso2.carbon.identity.mgt.*; version="${carbon.identity.mgt.import.version.range}",
+            org.yaml.snakeyaml.*;version="${org.snakeyaml.package.import.version.range}",
+            org.wso2.carbon.deployment.engine; version="${carbon.deployment.import.version.range}",
+            org.wso2.carbon.deployment.engine.exception; version="${carbon.deployment.import.version.range}",
+            org.apache.commons.codec; version="${commons.codec.pkg.import.version.range}"; resolution:=optional,
+            org.apache.commons.codec.*;version="${commons.codec.pkg.import.version.range}"; resolution:=optional,
+            org.osgi.service.*;version="${carbon.jndi.import.version.range}",
+        </import.package>
+        <carbon.component>
+            osgi.service;objectClass="org.wso2.carbon.deployment.engine.Deployer";serviceCount="2"
+        </carbon.component>
+        <dynamic.import.package>*</dynamic.import.package>
+        <org.snakeyaml.package.import.version.range>[1.16.0, 2.0.0)</org.snakeyaml.package.import.version.range>
+    </properties>
+
+</project>

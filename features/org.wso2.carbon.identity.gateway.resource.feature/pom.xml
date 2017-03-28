@@ -112,7 +112,7 @@
                             <importFeatures>
                                 <feature>
                                     <id>org.wso2.carbon.identity.gateway</id>
-                                    <version>${identity.gateway.version}</version>
+                                    <version>${project.version}</version>
                                 </feature>
                             </importFeatures>
                         </configuration>

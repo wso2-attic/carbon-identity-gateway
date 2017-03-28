@@ -115,15 +115,15 @@
                                 </bundle>
                                 <bundle>
                                     <symbolicName>org.wso2.carbon.identity.gateway.common</symbolicName>
-                                    <version>${identity.gateway.common.version}</version>
+                                    <version>${project.version}</version>
                                 </bundle>
                                 <bundle>
                                     <symbolicName>org.wso2.carbon.identity.gateway.api</symbolicName>
-                                    <version>${identity.gateway.api.version}</version>
+                                    <version>${project.version}</version>
                                 </bundle>
                                 <bundle>
                                     <symbolicName>org.wso2.carbon.identity.gateway</symbolicName>
-                                    <version>${identity.gateway.version}</version>
+                                    <version>${project.version}</version>
                                 </bundle>
                                 <bundle>
                                     <symbolicName>commons-lang</symbolicName>

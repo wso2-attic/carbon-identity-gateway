@@ -14,8 +14,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
         <groupId>org.wso2</groupId>
@@ -27,7 +26,7 @@
     <groupId>org.wso2.carbon.identity.gateway</groupId>
     <artifactId>carbon-identity-gateway</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.1-SNAPSHOT</version>
     <name>WSO2 Carbon - Identity Gateway</name>
     <url>http://wso2.org</url>
 
@@ -100,22 +99,22 @@
             <dependency>
                 <groupId>org.wso2.carbon.identity.gateway</groupId>
                 <artifactId>org.wso2.carbon.identity.gateway.common</artifactId>
-                <version>${identity.gateway.common.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.identity.gateway</groupId>
                 <artifactId>org.wso2.carbon.identity.gateway.api</artifactId>
-                <version>${identity.gateway.api.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.identity.gateway</groupId>
                 <artifactId>org.wso2.carbon.identity.gateway</artifactId>
-                <version>${identity.gateway.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.identity.gateway</groupId>
                 <artifactId>org.wso2.carbon.identity.gateway.resource</artifactId>
-                <version>${identity.gateway.resource.version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
@@ -361,12 +360,12 @@
             <dependency>
                 <groupId>org.wso2.carbon.identity.gateway</groupId>
                 <artifactId>org.wso2.carbon.identity.inbound.sample</artifactId>
-                <version>${identity.gateway.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.identity.gateway</groupId>
                 <artifactId>org.wso2.carbon.identity.outbound.sample</artifactId>
-                <version>${identity.gateway.version}</version>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -426,6 +425,14 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <preparationGoals>clean install</preparationGoals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.8</source>
@@ -451,20 +458,15 @@
         <checkstyle.skip>true</checkstyle.skip>
         <findbugs.skip>true</findbugs.skip>
 
-        <identity.gateway.version>${project.version}</identity.gateway.version>
-        <identity.gateway.export.version>${identity.gateway.version}</identity.gateway.export.version>
+        <identity.gateway.export.version>${project.version}</identity.gateway.export.version>
         <identity.gateway.import.version.range>[0.0.0,1.0.0)</identity.gateway.import.version.range>
 
-        <identity.gateway.api.version>${project.version}</identity.gateway.api.version>
-        <identity.gateway.api.export.version>${identity.gateway.api.version}</identity.gateway.api.export.version>
+        <identity.gateway.api.export.version>${project.version}</identity.gateway.api.export.version>
         <identity.gateway.api.import.version.range>[0.0.0,1.0.0)</identity.gateway.api.import.version.range>
 
-        <identity.gateway.common.version>${project.version}</identity.gateway.common.version>
-        <identity.gateway.common.export.version>${identity.gateway.common.version}</identity.gateway.common.export.version>
+        <identity.gateway.common.export.version>${project.version}</identity.gateway.common.export.version>
         <identity.gateway.common.import.version.range>[0.0.0,1.0.0)</identity.gateway.common.import.version.range>
 
-        <identity.gateway.resource.version>${project.version}</identity.gateway.resource.version>
-        <identity.gateway.resource.export.version>${identity.gateway.resource.version}</identity.gateway.resource.export.version>
         <identity.gateway.resource.import.version.range>[0.0.0,1.0.0)</identity.gateway.resource.import.version.range>
 
         <carbon.identity.mgt.version>0.1.22</carbon.identity.mgt.version>

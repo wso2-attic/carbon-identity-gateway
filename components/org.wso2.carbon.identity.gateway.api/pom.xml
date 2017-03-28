@@ -23,7 +23,7 @@
     <parent>
         <groupId>org.wso2.carbon.identity.gateway</groupId>
         <artifactId>carbon-identity-gateway</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>0.1.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
@@ -130,7 +130,6 @@
             org.wso2.carbon.identity.common.*; version="${carbon.identity.common.import.version.range}",
             org.wso2.carbon.identity.gateway.commons.*; version="${identity.gateway.common.import.version.range}"
         </import.package>
-        <!--dynamic.import.package>*</dynamic.import.package-->
     </properties>
 
 </project>

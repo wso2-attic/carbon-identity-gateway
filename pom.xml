@@ -27,14 +27,14 @@
     <groupId>org.wso2.carbon.identity.gateway</groupId>
     <artifactId>carbon-identity-gateway</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.1.0-SNAPSHOT</version>
     <name>WSO2 Carbon - Identity Gateway</name>
     <url>http://wso2.org</url>
 
     <scm>
-        <url>https://github.com/wso2/carbon-identity-framework.git</url>
-        <developerConnection>scm:git:https://github.com/wso2/carbon-identity-framework.git</developerConnection>
-        <connection>scm:git:https://github.com/wso2/carbon-identity-framework.git</connection>
+        <url>https://github.com/wso2/carbon-identity-gateway.git</url>
+        <developerConnection>scm:git:https://github.com/wso2/carbon-identity-gateway.git</developerConnection>
+        <connection>scm:git:https://github.com/wso2/carbon-identity-gateway.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -123,27 +123,6 @@
                 <artifactId>commons-lang</artifactId>
                 <version>${commons.lang.version}</version>
             </dependency>
-
-            <!--dependency>
-                <groupId>xerces.wso2</groupId>
-                <artifactId>xercesImpl</artifactId>
-                <version>${xerces.wso2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.ws.security.wso2</groupId>
-                <artifactId>wss4j</artifactId>
-                <version>${wss4j.wso2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.orbit.commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons.collections.wso2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-lang.wso2</groupId>
-                <artifactId>commons-lang</artifactId>
-                <version>${commons.lang.version}</version>
-            </dependency-->
             <dependency>
                 <groupId>org.wso2.orbit.org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
@@ -279,12 +258,6 @@
                 <version>${netty.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>io.netty</groupId>-->
-                <!--<artifactId>netty-codec-http</artifactId>-->
-                <!--<version>${netty.version}</version>-->
-                <!--<scope>test</scope>-->
-            <!--</dependency>-->
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-handler</artifactId>
@@ -323,12 +296,6 @@
                 <artifactId>h2</artifactId>
                 <version>${com.h2database.h2.version}</version>
             </dependency>
-            <!--<dependency>-->
-                <!--<groupId>org.wso2.carbon.transport</groupId>-->
-                <!--<artifactId>org.wso2.carbon.transport.http.netty</artifactId>-->
-                <!--<version>${carbon.transport.http.netty.version}</version>-->
-                <!--<scope>test</scope>-->
-            <!--</dependency>-->
             <dependency>
                 <groupId>org.wso2.msf4j</groupId>
                 <artifactId>jaxrs-delegates</artifactId>
@@ -486,19 +453,19 @@
 
         <identity.gateway.version>${project.version}</identity.gateway.version>
         <identity.gateway.export.version>${identity.gateway.version}</identity.gateway.export.version>
-        <identity.gateway.import.version.range>[1.0.0,2.0.0)</identity.gateway.import.version.range>
+        <identity.gateway.import.version.range>[0.0.0,1.0.0)</identity.gateway.import.version.range>
 
         <identity.gateway.api.version>${project.version}</identity.gateway.api.version>
         <identity.gateway.api.export.version>${identity.gateway.api.version}</identity.gateway.api.export.version>
-        <identity.gateway.api.import.version.range>[1.0.0,2.0.0)</identity.gateway.api.import.version.range>
+        <identity.gateway.api.import.version.range>[0.0.0,1.0.0)</identity.gateway.api.import.version.range>
 
         <identity.gateway.common.version>${project.version}</identity.gateway.common.version>
         <identity.gateway.common.export.version>${identity.gateway.common.version}</identity.gateway.common.export.version>
-        <identity.gateway.common.import.version.range>[1.0.0,2.0.0)</identity.gateway.common.import.version.range>
+        <identity.gateway.common.import.version.range>[0.0.0,1.0.0)</identity.gateway.common.import.version.range>
 
         <identity.gateway.resource.version>${project.version}</identity.gateway.resource.version>
         <identity.gateway.resource.export.version>${identity.gateway.resource.version}</identity.gateway.resource.export.version>
-        <identity.gateway.resource.import.version.range>[1.0.0,2.0.0)</identity.gateway.resource.import.version.range>
+        <identity.gateway.resource.import.version.range>[0.0.0,1.0.0)</identity.gateway.resource.import.version.range>
 
         <carbon.identity.mgt.version>0.1.22</carbon.identity.mgt.version>
         <carbon.identity.mgt.import.version.range>[0.0.0,1.0.0)</carbon.identity.mgt.import.version.range>

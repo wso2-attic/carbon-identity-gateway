@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 *.class
-=======
 .classpath
 .settings
 .project
@@ -8,7 +6,6 @@
 *.iws
 *.ipr
 .idea
->>>>>>> origin/C5-Identity-Gateway
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

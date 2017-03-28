@@ -47,7 +47,7 @@ public class AuthenticationResponse {
     /**
      * By using this, status will assign to INCOMPLETE.
      *
-     * @param gatewayResponseBuilder
+     * @param gatewayResponseBuilder Gateway Response Builder
      */
     public AuthenticationResponse(GatewayResponse.GatewayResponseBuilder gatewayResponseBuilder) {
         this.gatewayResponseBuilder = gatewayResponseBuilder;
@@ -63,7 +63,7 @@ public class AuthenticationResponse {
     }
 
     /**
-     * @param status
+     * @param status Status
      */
     public AuthenticationResponse(Status status) {
         this.status = status;

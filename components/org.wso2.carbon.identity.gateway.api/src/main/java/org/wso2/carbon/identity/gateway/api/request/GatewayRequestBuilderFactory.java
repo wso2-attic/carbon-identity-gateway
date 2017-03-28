@@ -44,7 +44,7 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
     /**
      * This is default can handler true if there are no any extended type of the factory in the factory registry.
      *
-     * @param request
+     * @param request MS4J request
      * @return boolean
      */
     public boolean canHandle(Request request) throws GatewayException {
@@ -54,9 +54,9 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
     /**
      * Create GatewayRequestBuilder.
      *
-     * @param request
-     * @return
-     * @throws GatewayClientException
+     * @param request MS4J request
+     * @return Gateway Request Builder.
+     * @throws GatewayClientException GatewayClientException.
      */
     public T create(Request request)
             throws GatewayClientException {
@@ -68,9 +68,9 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
     /**
      * Update GatewayRequestBuilder.
      *
-     * @param builder
-     * @param request
-     * @throws GatewayClientException
+     * @param builder Builder.
+     * @param request MS4J request
+     * @throws GatewayClientException GatewayClientException
      */
     protected void create(T builder, Request request)
             throws GatewayClientException {
@@ -111,7 +111,7 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
      * Handling exception for GatewayClientException.
      *
      * @param exception
-     * @return
+     * @return MS4J response builder.
      */
     public Response.ResponseBuilder handleException(GatewayClientException exception) {
         Response.ResponseBuilder builder = Response.noContent();
@@ -125,7 +125,7 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
     /**
      * Handling exception for RuntimeException.
      *
-     * @param exception
+     * @param exception Runtime Exception.
      * @return
      */
     public Response.ResponseBuilder handleException(RuntimeException exception) {

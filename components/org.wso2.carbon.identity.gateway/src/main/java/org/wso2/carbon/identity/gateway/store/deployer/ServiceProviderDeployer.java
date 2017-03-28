@@ -79,8 +79,9 @@ public class ServiceProviderDeployer implements Deployer {
     /**
      * Read Service Provider Config Object.
      *
-     * @param artifact
+     * @param artifact Artifact.
      * @return ServiceProviderConfig
+     * @throws GatewayServerException GatewayServerException.
      */
     public synchronized ServiceProviderConfig getServiceProviderConfig(Artifact artifact)
             throws GatewayServerException {

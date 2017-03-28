@@ -36,7 +36,7 @@ public class SessionContextCache extends BaseCache<String, SessionContext> {
     }
 
     /**
-     * @return
+     * @return SessionContextCache
      */
     public static SessionContextCache getInstance() {
         if (instance == null) {
@@ -50,7 +50,7 @@ public class SessionContextCache extends BaseCache<String, SessionContext> {
     }
 
     /**
-     * @param key
+     * @param key Key of the context which needs to be cleared
      */
     public void clear(String key) {
         super.clear(key);
@@ -58,8 +58,8 @@ public class SessionContextCache extends BaseCache<String, SessionContext> {
     }
 
     /**
-     * @param key
-     * @return
+     * @param key Key of the context which needs to be retrieved.
+     * @return SessionContext
      */
     public SessionContext get(String key) {
         SessionContext context = super.get(key);
@@ -70,8 +70,8 @@ public class SessionContextCache extends BaseCache<String, SessionContext> {
     }
 
     /**
-     * @param key
-     * @param context
+     * @param key Key of the context which needs to be put
+     * @param context SessionContext
      */
     public void put(String key, SessionContext context) {
         super.put(key, context);

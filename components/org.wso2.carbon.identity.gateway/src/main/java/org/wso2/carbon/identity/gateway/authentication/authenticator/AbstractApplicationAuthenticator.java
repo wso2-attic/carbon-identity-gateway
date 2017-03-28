@@ -48,9 +48,9 @@ public abstract class AbstractApplicationAuthenticator implements ApplicationAut
     /**
      * Check whether the request is initial/failed one or not.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication Context
+     * @return Whether the incoming request was an initial request
+     * @throws AuthenticationHandlerException : Exception used in handlers
      */
     protected boolean isInitialRequest(AuthenticationContext authenticationContext)
             throws AuthenticationHandlerException {
@@ -67,9 +67,9 @@ public abstract class AbstractApplicationAuthenticator implements ApplicationAut
     /**
      * If the request is initial/failed, then this method will call by the process method.
      *
-     * @param context
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param context Authentication Context
+     * @return Authentication Response
+     * @throws AuthenticationHandlerException Exception used in handlers
      */
     protected abstract AuthenticationResponse processRequest(AuthenticationContext context)
             throws AuthenticationHandlerException;
@@ -77,9 +77,9 @@ public abstract class AbstractApplicationAuthenticator implements ApplicationAut
     /**
      * If the request is not the initial/failed one , then this method will call by processor.
      *
-     * @param context
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param context Authentication Context
+     * @return Authentication Response
+     * @throws AuthenticationHandlerException Exception used in handlers
      */
     protected abstract AuthenticationResponse processResponse(AuthenticationContext context)
             throws AuthenticationHandlerException;

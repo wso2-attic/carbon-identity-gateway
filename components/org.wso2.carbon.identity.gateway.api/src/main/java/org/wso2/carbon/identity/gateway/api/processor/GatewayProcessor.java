@@ -27,7 +27,7 @@ import org.wso2.carbon.identity.gateway.api.response.GatewayResponse;
  * we have to write a custom processor and should accept this in canHandle method. Then when we send a request to the
  * gateway, it will pick this processor and call the process method.
  *
- * @param <T>
+ * @param <T>  Any object extents GatewayRequest.
  */
 public abstract class GatewayProcessor<T extends GatewayRequest> extends AbstractHandler {
 

@@ -59,11 +59,11 @@ public class GatewayUtil {
     /**
      * Load provider config.
      *
-     * @param artifact
-     * @param providerClass
-     * @param <T>
-     * @return
-     * @throws GatewayServerException
+     * @param artifact An artifact.
+     * @param providerClass  Provider class.
+     * @param <T> A provider.
+     * @return A provider
+     * @throws GatewayServerException GatewayServerException.
      */
     public static <T extends Object> T getProvider(Artifact artifact, Class<T> providerClass)
             throws GatewayServerException {

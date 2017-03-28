@@ -33,9 +33,9 @@ public class GatewayResponse implements Serializable {
     protected String sessionKey;
 
     /**
-     * Default Cosntructor.
+     * Default Constructor.
      *
-     * @param builder
+     * @param builder builder.
      */
     protected GatewayResponse(GatewayResponseBuilder builder) {
         this.context = builder.context;

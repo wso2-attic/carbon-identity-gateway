@@ -36,7 +36,7 @@ public class AuthenticationContextCache extends BaseCache<String, GatewayMessage
     }
 
     /**
-     * @return
+     * @return  AuthenticationContextCache
      */
     public static AuthenticationContextCache getInstance() {
         if (instance == null) {
@@ -50,7 +50,7 @@ public class AuthenticationContextCache extends BaseCache<String, GatewayMessage
     }
 
     /**
-     * @param key
+     * @param key Cache key
      */
     public void clear(String key) {
         super.clear(key);
@@ -58,8 +58,8 @@ public class AuthenticationContextCache extends BaseCache<String, GatewayMessage
     }
 
     /**
-     * @param key
-     * @return
+     * @param key Cache Key
+     * @return  GatewayMessageContext
      */
     public GatewayMessageContext get(String key) {
         GatewayMessageContext context = super.get(key);
@@ -71,8 +71,8 @@ public class AuthenticationContextCache extends BaseCache<String, GatewayMessage
 
 
     /**
-     * @param key
-     * @param context
+     * @param key Key of the gateway message context
+     * @param context  Gateway message context
      */
     public void put(String key, GatewayMessageContext context) {
         super.put(key, context);

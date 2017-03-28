@@ -28,9 +28,9 @@ import java.util.Map;
  * GatewayMessageContext is the context that is used to create domain specific context class that can be pass through
  * the API to share the contents.
  *
- * @param <T1>
- * @param <T2>
- * @param <T3>
+ * @param <T1> Serializable Object.
+ * @param <T2> Serializable Object.
+ * @param <T3> A GatewayRequestObject.
  */
 public class GatewayMessageContext<T1 extends Serializable, T2 extends Serializable, T3 extends GatewayRequest>
         extends
@@ -41,8 +41,8 @@ public class GatewayMessageContext<T1 extends Serializable, T2 extends Serializa
     protected T3 identityRequest;
 
     /**
-     * @param identityRequest
-     * @param parameters
+     * @param identityRequest An Identity Request
+     * @param parameters  Parameters.
      */
     public GatewayMessageContext(T3 identityRequest, Map<T1, T2> parameters) {
         super(parameters);
@@ -50,7 +50,7 @@ public class GatewayMessageContext<T1 extends Serializable, T2 extends Serializa
     }
 
     /**
-     * @param identityRequest
+     * @param identityRequest An Identity Reqeust.
      */
     public GatewayMessageContext(T3 identityRequest) {
         this.identityRequest = identityRequest;
@@ -59,7 +59,7 @@ public class GatewayMessageContext<T1 extends Serializable, T2 extends Serializa
     /**
      * Get Identity Request.
      *
-     * @return
+     * @return Identity Request.
      */
     public T3 getIdentityRequest() {
         return identityRequest;
@@ -68,7 +68,7 @@ public class GatewayMessageContext<T1 extends Serializable, T2 extends Serializa
     /**
      * Set Identity Request.
      *
-     * @param identityRequest
+     * @param identityRequest An Identity Request.
      */
     public void setIdentityRequest(T3 identityRequest) {
         this.identityRequest = identityRequest;
@@ -81,8 +81,8 @@ public class GatewayMessageContext<T1 extends Serializable, T2 extends Serializa
     /**
      * Tmp override until get solution
      *
-     * @param key
-     * @param value
+     * @param key Key of the parameter.
+     * @param value Value of the parameter.
      */
     public void addParameter(T1 key, T2 value) {
         this.parameters.put(key, value);

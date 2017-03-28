@@ -35,15 +35,13 @@ public interface ApplicationAuthenticator {
         return "";
     }
 
-    ;
-
 
     /**
      * This method is to give the responsibility to tell the possibility of handle the request by the authenticator
      * itself to the framework.
      *
-     * @param authenticationContext
-     * @return
+     * @param authenticationContext Authentication Context
+     * @return Whether this authenticator can handle or not
      */
     public default boolean canHandle(AuthenticationContext authenticationContext) {
         return true;
@@ -52,9 +50,9 @@ public interface ApplicationAuthenticator {
     /**
      * process is the one we called in authenticator to do the authentication process.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication Context
+     * @return Authentication response
+     * @throws AuthenticationHandlerException AuthenticationHandlerException
      */
     public AuthenticationResponse process(AuthenticationContext authenticationContext)
             throws AuthenticationHandlerException;
@@ -62,8 +60,8 @@ public interface ApplicationAuthenticator {
     /**
      * Authenticator wise, it should be able to enable/disable retry.
      *
-     * @param authenticationContext
-     * @return
+     * @param authenticationContext Authentication Context
+     * @return Whether retrying is enabled or not for this authenticator
      */
     public default boolean isRetryEnable(AuthenticationContext authenticationContext) {
         return false;

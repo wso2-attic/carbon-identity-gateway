@@ -35,10 +35,10 @@ public interface Sequence extends Serializable {
     /**
      * Return the IdentityProvider for given step and idpName.
      *
-     * @param step
-     * @param identityProviderName
-     * @return IdentityProvider
-     * @throws AuthenticationHandlerException
+     * @param step Step Number
+     * @param identityProviderName Name of the identity provider
+     * @return IdentityProvider An identity Provider instance
+     * @throws AuthenticationHandlerException AuthenticationHandlerException
      */
     public abstract IdentityProvider getIdentityProvider(int step, String identityProviderName)
             throws AuthenticationHandlerException;
@@ -46,9 +46,9 @@ public interface Sequence extends Serializable {
     /**
      * Return List of IdentityProviders to the given step.
      *
-     * @param step
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param step Step number
+     * @return List of Identity Providers
+     * @throws AuthenticationHandlerException AuthenticationHandlerException
      */
     public abstract List<IdentityProvider> getIdentityProviders(int step)
             throws AuthenticationHandlerException;
@@ -57,30 +57,18 @@ public interface Sequence extends Serializable {
     /**
      * Check whether we have another steps to be authenticate based on current step number.
      *
-     * @param currentStep
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param currentStep Current Step number
+     * @return Returns whether a next step is present or not.
+     * @throws AuthenticationHandlerException AuthenticationHandlerException
      */
     public abstract boolean hasNext(int currentStep) throws AuthenticationHandlerException;
 
     /**
      * Return AuthenticationStepConfig for given step.
      *
-     * @param step
-     * @return
+     * @param step Step Number
+     * @return  Authentication Step Configurations
      */
     public abstract AuthenticationStepConfig getAuthenticationStepConfig(int step);
-
-
-   /* *//**
-     * Return AuthenticatorConfig for given step, authenticatorName, idpName
-     *
-     * @param step
-     * @param authenticatorName
-     * @param identityProvider
-     * @return
-     *//*
-    public abstract AuthenticatorConfig getAuthenticatorConfig(int step, String authenticatorName, String
-            identityProvider);*/
 
 }

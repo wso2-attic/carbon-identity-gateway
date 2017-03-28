@@ -107,8 +107,8 @@ public class GatewayResource implements Microservice {
     /**
      * All the GET request are come to this API and process by the GatewayManager.
      *
-     * @param request
-     * @return
+     * @param request MS4J request.
+     * @return  MS4J response.
      */
     @GET
     @Path("/")

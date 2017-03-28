@@ -48,7 +48,7 @@ public class DefaultSequence implements Sequence {
     /**
      * No Default constructor and it is mandatory to pass AuthenticationContext to this.
      *
-     * @param authenticationContext
+     * @param authenticationContext Authentication context
      */
     public DefaultSequence(AuthenticationContext authenticationContext) {
         this.authenticationContext = authenticationContext;

@@ -51,7 +51,7 @@ public class GatewayManager {
     /**
      * Main execution point of the gateway resource manager.
      *
-     * @param request
+     * @param request MS4J request
      * @return MSF4J response
      */
     public Response execute(Request request) {
@@ -87,8 +87,8 @@ public class GatewayManager {
     /**
      * Handler the exception that is not handle by the gateway and throw 500 status.
      *
-     * @param exception
-     * @return
+     * @param exception Runtime Exception.
+     * @return MS4J response builder.
      */
     public Response.ResponseBuilder handleException(RuntimeException exception) {
 
@@ -104,7 +104,7 @@ public class GatewayManager {
      * exception.
      *
      * @param gatewayRequest
-     * @return
+     * @return GatewayProcessor
      */
     private GatewayProcessor getIdentityProcessor(GatewayRequest gatewayRequest) {
         List<GatewayProcessor> processors = GatewayResourceDataHolder.getInstance().getGatewayProcessors();
@@ -126,8 +126,8 @@ public class GatewayManager {
      * Find the RequestFactory based on Request. If not find any extended version of GatewayRequestBuilderFactory,
      * then it will pick up the GatewayRequestBuilderFactory as the default one.
      *
-     * @param request
-     * @return
+     * @param request MS4J request
+     * @return GatewayRequestBuilderFactory
      */
     private GatewayRequestBuilderFactory getIdentityRequestFactory(Request request) {
 
@@ -153,8 +153,8 @@ public class GatewayManager {
      * Find the ResponseFactory based on GatewayResponse. If not find any extended version of
      * GatewayResponseBuilderFactory, then it will pick up the GatewayResponseBuilderFactory as the default one.
      *
-     * @param gatewayResponse
-     * @return
+     * @param gatewayResponse Gateway Response.
+     * @return GatewayResponseBuilderFactory.
      */
     private GatewayResponseBuilderFactory getIdentityResponseFactory(GatewayResponse gatewayResponse) {
 

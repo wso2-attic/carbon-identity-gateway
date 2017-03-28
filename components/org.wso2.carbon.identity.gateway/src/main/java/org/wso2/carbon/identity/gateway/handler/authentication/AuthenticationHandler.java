@@ -45,9 +45,9 @@ public class AuthenticationHandler extends AbstractGatewayHandler {
     /**
      * authenticate the request.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication context.
+     * @return GatewayHandlerResponse
+     * @throws AuthenticationHandlerException AuthenticationHandlerException
      */
     public GatewayHandlerResponse authenticate(AuthenticationContext authenticationContext) throws
             AuthenticationHandlerException {
@@ -68,8 +68,8 @@ public class AuthenticationHandler extends AbstractGatewayHandler {
     /**
      * Map the authentication level status to the handler level status.
      *
-     * @param handlerResponse
-     * @return
+     * @param handlerResponse A handler response.
+     * @return GatewayHandlerResponse GatewayHandlerResponse
      */
     private GatewayHandlerResponse buildFrameworkHandlerResponse(AuthenticationResponse handlerResponse) {
         GatewayHandlerResponse gatewayHandlerResponse = null;

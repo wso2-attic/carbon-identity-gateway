@@ -56,9 +56,9 @@ public class AuthenticationStepHandler extends AbstractGatewayHandler {
     /**
      * handleStepAuthentication method is called by AuthenticationHandler implementation and will execute the flow.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication context.
+     * @return Authentication Response
+     * @throws AuthenticationHandlerException AuthenticationHandlerException.
      */
     public AuthenticationResponse handleStepAuthentication(AuthenticationContext authenticationContext)
             throws AuthenticationHandlerException {
@@ -90,9 +90,9 @@ public class AuthenticationStepHandler extends AbstractGatewayHandler {
      * As default implementation, we check the current step idps vs same step idps in all the authenticated service
      * providers in session context.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication Context
+     * @return Authentication Response
+     * @throws AuthenticationHandlerException AuthenticationHandlerException
      */
     protected boolean lookUpSessionValidity(AuthenticationContext authenticationContext) throws
             AuthenticationHandlerException {
@@ -136,8 +136,8 @@ public class AuthenticationStepHandler extends AbstractGatewayHandler {
     /**
      * Return ExecutionHandler based on context.
      *
-     * @param authenticationContext
-     * @return
+     * @param authenticationContext Authentication context.
+     * @return Abstract Execution Handler
      */
     private AbstractExecutionHandler getExecutionHandler(AuthenticationContext authenticationContext) {
         return (AbstractExecutionHandler) getHandler(GatewayServiceHolder.getInstance().getExecutionHandlers(), authenticationContext);

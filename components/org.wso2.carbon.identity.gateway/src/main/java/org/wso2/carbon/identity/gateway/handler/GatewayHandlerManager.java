@@ -31,6 +31,9 @@ import org.wso2.carbon.identity.gateway.internal.GatewayServiceHolder;
 
 import java.util.List;
 
+/**
+ * Manages handlers which are in gateway.
+ */
 public class GatewayHandlerManager {
 
 
@@ -48,8 +51,8 @@ public class GatewayHandlerManager {
     /**
      * Get Authentication Handler.
      *
-     * @param messageContext
-     * @return
+     * @param messageContext Gateway Message Context
+     * @return AuthenticationHandler
      */
     public AuthenticationHandler getAuthenticationHandler(GatewayMessageContext messageContext) {
         List<AuthenticationHandler> authenticationHandlers =
@@ -75,8 +78,8 @@ public class GatewayHandlerManager {
     /**
      * Get RequestValidator.
      *
-     * @param messageContext
-     * @return
+     * @param messageContext Message Context.
+     * @return AbstractRequestValidator
      */
     public AbstractRequestValidator getRequestValidator(GatewayMessageContext messageContext) {
 
@@ -103,8 +106,9 @@ public class GatewayHandlerManager {
     /**
      * Get Response Handler.
      *
-     * @param authenticationContext
-     * @return
+     * @param authenticationContext Authentication Context.
+     * @param e Gateway Exception.
+     * @return AbstractResponseHandler
      */
     public AbstractResponseHandler getResponseHandler(AuthenticationContext authenticationContext, GatewayException e) {
 
@@ -132,8 +136,9 @@ public class GatewayHandlerManager {
     /**
      * Get Response Handler.
      *
-     * @param authenticationContext
-     * @return
+     * @param authenticationContext Authentication context.
+     * @param e Gateway Runtime Exception.
+     * @return AbstractResponseHandler
      */
     public AbstractResponseHandler getResponseHandler(AuthenticationContext authenticationContext,
                                                       GatewayRuntimeException e) {
@@ -161,8 +166,8 @@ public class GatewayHandlerManager {
     /**
      * Get Response Handler.
      *
-     * @param authenticationContext
-     * @return
+     * @param authenticationContext Authentication Context.
+     * @return AbstractResponseHandler
      */
     public AbstractResponseHandler getResponseHandler(AuthenticationContext authenticationContext) {
 
@@ -189,8 +194,8 @@ public class GatewayHandlerManager {
     /**
      * Get RequestValidator.
      *
-     * @param messageContext
-     * @return
+     * @param messageContext Gateway Message context.
+     * @return AbstractSessionHandler
      */
     public AbstractSessionHandler getSessionHandler(GatewayMessageContext messageContext) {
 

@@ -70,10 +70,12 @@ public class IdentityProviderDeployer implements Deployer {
     }
 
     /**
+     *
      * Read Identity Provider Config Object.
      *
-     * @param artifact
-     * @return IdentityProviderConfig
+     * @param artifact Artifact object.
+     * @return IdentityProviderConfig Identity provider configurations built from given artifact.
+     * @throws GatewayServerException GatewayServerException.
      */
     public synchronized IdentityProviderConfig getIdentityProviderConfig(Artifact artifact)
             throws GatewayServerException {

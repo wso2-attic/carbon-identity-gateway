@@ -136,8 +136,8 @@ public class AuthenticationProcessor extends GatewayProcessor<AuthenticationRequ
     /**
      * Load last AuthenticationContext from cache for given requestKey.
      *
-     * @param authenticationRequest
-     * @return
+     * @param authenticationRequest Authentication Reqeust
+     * @return AuthenticationContext
      */
     protected AuthenticationContext loadAuthenticationContext(AuthenticationRequest authenticationRequest) {
 

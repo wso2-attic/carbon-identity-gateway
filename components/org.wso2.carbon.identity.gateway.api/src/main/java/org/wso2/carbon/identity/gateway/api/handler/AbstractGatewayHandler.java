@@ -29,7 +29,7 @@ import java.util.List;
  * Except that, this has AbstractMessageHandler as the super class and all the event based common functionality will
  * be inherited from that.
  *
- * @param <T>
+ * @param <T> Message Context.
  */
 public abstract class AbstractGatewayHandler<T extends MessageContext> extends
         AbstractMessageHandler {
@@ -37,8 +37,8 @@ public abstract class AbstractGatewayHandler<T extends MessageContext> extends
     /**
      * Default canHandle method for all the generic handlers.
      *
-     * @param messageContext
-     * @return
+     * @param messageContext Message Context.
+     * @return Whether this can handle it or not.
      */
     public abstract boolean canHandle(T messageContext);
 

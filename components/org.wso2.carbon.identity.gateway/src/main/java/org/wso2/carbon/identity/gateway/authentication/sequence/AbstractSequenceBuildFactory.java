@@ -32,9 +32,9 @@ public abstract class AbstractSequenceBuildFactory extends AbstractGatewayHandle
     /**
      * To return custom sequence, this method should implement and return new sequence type instance.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication context.
+     * @return Built Sequence.
+     * @throws AuthenticationHandlerException AuthenticationHandlerException.
      */
     public abstract Sequence buildSequence(AuthenticationContext authenticationContext)
             throws AuthenticationHandlerException;

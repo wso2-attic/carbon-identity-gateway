@@ -50,10 +50,10 @@ public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
     /**
      * Build Error Response based on GatewayException and AuthenticationContext.
      *
-     * @param authenticationContext
-     * @param exception
-     * @return
-     * @throws ResponseHandlerException
+     * @param authenticationContext Authentication context.
+     * @param exception Exception which needs to be handled.
+     * @return GatewayHandlerResponse
+     * @throws ResponseHandlerException ResponseHandlerException.
      */
     public abstract GatewayHandlerResponse buildErrorResponse(AuthenticationContext authenticationContext,
                                                               GatewayException exception)
@@ -62,10 +62,10 @@ public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
     /**
      * Build Error Response based on GatewayRuntimeException and AuthenticationContext.
      *
-     * @param authenticationContext
-     * @param exception
-     * @return
-     * @throws ResponseHandlerException
+     * @param authenticationContext Authentication context.
+     * @param exception Exception which needs to be handled.
+     * @return GatewayHandlerResponse
+     * @throws ResponseHandlerException ResponseHandlerException.
      */
     public abstract GatewayHandlerResponse buildErrorResponse(AuthenticationContext authenticationContext,
                                                               GatewayRuntimeException exception)
@@ -74,9 +74,9 @@ public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
     /**
      * Build the successful response.
      *
-     * @param authenticationContext
-     * @return
-     * @throws ResponseHandlerException
+     * @param authenticationContext Authentication Context.
+     * @return GatewayHandlerResponse
+     * @throws ResponseHandlerException ResponseHandlerException.
      */
     public abstract GatewayHandlerResponse buildResponse(AuthenticationContext authenticationContext)
             throws ResponseHandlerException;
@@ -88,9 +88,9 @@ public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
     /**
      * Get the response build configs.
      *
-     * @param authenticationContext
-     * @return
-     * @throws AuthenticationHandlerException
+     * @param authenticationContext Authentication Context.
+     * @return ResponseBuilderConfig Response builder configurations.
+     * @throws GatewayRuntimeException GatewayRuntimeException.
      */
     protected ResponseBuilderConfig getResponseBuilderConfigs(AuthenticationContext authenticationContext) throws
                                                                                                            GatewayRuntimeException {
@@ -113,16 +113,15 @@ public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
     /**
      * Validation type is based on protocol.
      *
-     * @return
+     * @return Type of the validator.
      */
     public abstract String getValidatorType();
 
     /**
      * Add the session key.
      *
-     * @param responseBuilder
-     * @param context
-     * @throws ResponseHandlerException
+     * @param responseBuilder Response Builder.
+     * @param context Authentication context.
      */
     protected void addSessionKey(GatewayResponse.GatewayResponseBuilder responseBuilder,
                                  AuthenticationContext context) {

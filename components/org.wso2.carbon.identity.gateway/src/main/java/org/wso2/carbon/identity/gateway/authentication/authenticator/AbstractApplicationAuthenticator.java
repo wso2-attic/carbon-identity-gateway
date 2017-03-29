@@ -30,9 +30,6 @@ import org.wso2.carbon.identity.gateway.exception.AuthenticationHandlerException
  */
 public abstract class AbstractApplicationAuthenticator implements ApplicationAuthenticator {
 
-    private static final long serialVersionUID = -4406878411547612129L;
-    private static final Logger log = LoggerFactory.getLogger(AbstractApplicationAuthenticator.class);
-
     @Override
     public AuthenticationResponse process(AuthenticationContext authenticationContext)
             throws AuthenticationHandlerException {

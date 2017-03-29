@@ -38,8 +38,6 @@ import org.wso2.carbon.identity.sample.outbound.response.ACSRequestResponseBuild
 )
 public class Activator implements BundleActivator {
 
-    private Logger log = LoggerFactory.getLogger(Activator.class);
-
     @Activate
     public void start(BundleContext bundleContext) throws Exception {
         try {

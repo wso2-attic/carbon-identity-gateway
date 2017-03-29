@@ -34,7 +34,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class AsyncSessionDAO extends SessionDAO {
 
-    private static final Logger log = LoggerFactory.getLogger(AsyncSessionDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(AsyncSessionDAO.class);
 
     private static SessionDAO instance = new AsyncSessionDAO();
     private SessionDAO persistentDAO = JDBCSessionDAO.getInstance();
@@ -48,8 +48,8 @@ public class AsyncSessionDAO extends SessionDAO {
         String poolSizeConfig = "2";
         if (NumberUtils.isNumber(poolSizeConfig)) {
             poolSize = Integer.parseInt(poolSizeConfig);
-            if (log.isDebugEnabled()) {
-                log.debug("Thread pool size for Session Async DAO: " + poolSizeConfig);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Thread pool size for Session Async DAO: " + poolSizeConfig);
             }
         }
         if (poolSize > 0) {

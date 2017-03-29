@@ -22,13 +22,11 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.wso2.carbon.identity.gateway.api.request.GatewayRequestBuilderFactory;
 import org.wso2.carbon.identity.gateway.api.response.GatewayResponseBuilderFactory;
 import org.wso2.carbon.identity.gateway.handler.validator.AbstractRequestValidator;
 import org.wso2.carbon.identity.gateway.handler.response.AbstractResponseHandler;
-import org.wso2.carbon.identity.sample.inbound.request.SampleProtocolIdentityRequestBuilderFactory;
+import org.wso2.carbon.identity.sample.inbound.request.SampleProtocolGatewayRequestBuilderFactory;
 import org.wso2.carbon.identity.sample.inbound.response.SampleProtocolResponseBuilderFactory;
 import org.wso2.carbon.identity.sample.inbound.response.SampleProtocolResponseHandler;
 import org.wso2.carbon.identity.sample.inbound.validator.SampleProtocolValidator;
@@ -39,12 +37,10 @@ import org.wso2.carbon.identity.sample.inbound.validator.SampleProtocolValidator
 )
 public class Activator implements BundleActivator {
 
-    private Logger log = LoggerFactory.getLogger(Activator.class);
-
     @Activate
     public void start(BundleContext bundleContext) throws Exception {
         try {
-            bundleContext.registerService(GatewayRequestBuilderFactory.class, new SampleProtocolIdentityRequestBuilderFactory(), null);
+            bundleContext.registerService(GatewayRequestBuilderFactory.class, new SampleProtocolGatewayRequestBuilderFactory(), null);
             bundleContext.registerService(GatewayResponseBuilderFactory.class, new SampleProtocolResponseBuilderFactory(), null);
             bundleContext.registerService(AbstractRequestValidator.class, new SampleProtocolValidator(), null);
             bundleContext.registerService(AbstractResponseHandler.class, new SampleProtocolResponseHandler(), null);

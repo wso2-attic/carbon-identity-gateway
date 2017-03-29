@@ -36,7 +36,7 @@ import org.wso2.carbon.identity.gateway.exception.AuthenticationHandlerException
  */
 public class SingleOptionExecutionHandler extends AbstractExecutionHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(SingleOptionExecutionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(SingleOptionExecutionHandler.class);
 
     @Override
     public AuthenticationResponse execute(AuthenticationContext authenticationContext) throws AuthenticationHandlerException {
@@ -91,7 +91,7 @@ public class SingleOptionExecutionHandler extends AbstractExecutionHandler {
         try {
             return canHandle(authenticationContext, ExecutionStrategy.SINGLE.toString());
         } catch (AuthenticationHandlerException e) {
-            log.error("Error occurred while trying to check the can handle for execution strategy, " + e.getMessage());
+            logger.error("Error occurred while trying to check the can handle for execution strategy, " + e.getMessage());
         }
         return false;
     }

@@ -39,7 +39,7 @@ import java.util.List;
  */
 public class MultiOptionExecutionHandler extends AbstractExecutionHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(MultiOptionExecutionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(MultiOptionExecutionHandler.class);
 
     @Override
     public AuthenticationResponse execute(AuthenticationContext authenticationContext) throws AuthenticationHandlerException {
@@ -125,7 +125,7 @@ public class MultiOptionExecutionHandler extends AbstractExecutionHandler {
         try {
             return canHandle(authenticationContext, ExecutionStrategy.MULTI.toString());
         } catch (AuthenticationHandlerException e) {
-            log.error("Error occurred while trying to check the can handle for execution strategy, " + e.getMessage()
+            logger.error("Error occurred while trying to check the can handle for execution strategy, " + e.getMessage()
                     , e);
         }
         return false;

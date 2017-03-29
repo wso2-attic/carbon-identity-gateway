@@ -41,7 +41,7 @@ import org.wso2.carbon.identity.gateway.request.ClientAuthenticationRequest;
  */
 public class AuthenticationProcessor extends GatewayProcessor<AuthenticationRequest> {
 
-    private static Logger log = org.slf4j.LoggerFactory.getLogger(AuthenticationProcessor.class);
+    private static Logger logger = org.slf4j.LoggerFactory.getLogger(AuthenticationProcessor.class);
 
     @Override
     public boolean canHandle(GatewayRequest gatewayRequest) {
@@ -60,75 +60,75 @@ public class AuthenticationProcessor extends GatewayProcessor<AuthenticationRequ
     @Override
     public GatewayResponse.GatewayResponseBuilder process(AuthenticationRequest authenticationRequest) {
 
-        if (log.isDebugEnabled()) {
-            log.debug("AuthenticationProcessor is starting to process the request.");
+        if (logger.isDebugEnabled()) {
+            logger.debug("AuthenticationProcessor is starting to process the request.");
         }
         AuthenticationContext authenticationContext = null;
         GatewayHandlerResponse response = new GatewayHandlerResponse(GatewayHandlerResponse.Status.CONTINUE);
         GatewayHandlerManager gatewayHandlerManager = GatewayHandlerManager.getInstance();
         try {
             authenticationContext = loadAuthenticationContext(authenticationRequest);
-            if (log.isDebugEnabled()) {
-                log.debug("AuthenticationProcessor loaded the AuthenticationContext.");
+            if (logger.isDebugEnabled()) {
+                logger.debug("AuthenticationProcessor loaded the AuthenticationContext.");
             }
             if (authenticationRequest instanceof ClientAuthenticationRequest) {
                 response = gatewayHandlerManager
                         .getRequestValidator(authenticationContext).validate(authenticationContext);
-                if (log.isDebugEnabled()) {
-                    log.debug("AuthenticationProcessor called the validation.");
+                if (logger.isDebugEnabled()) {
+                    logger.debug("AuthenticationProcessor called the validation.");
                 }
             }
             if (response.status.equals(GatewayHandlerResponse.Status.CONTINUE)) {
 
                 response = gatewayHandlerManager.getAuthenticationHandler(authenticationContext)
                         .authenticate(authenticationContext);
-                if (log.isDebugEnabled()) {
-                    log.debug("AuthenticationProcessor called the authentication.");
+                if (logger.isDebugEnabled()) {
+                    logger.debug("AuthenticationProcessor called the authentication.");
                 }
                 if (response.status.equals(GatewayHandlerResponse.Status.CONTINUE)) {
 
                     response = gatewayHandlerManager.getSessionHandler(authenticationContext)
                             .updateSession(authenticationContext);
-                    if (log.isDebugEnabled()) {
-                        log.debug("AuthenticationProcessor called the update session.");
+                    if (logger.isDebugEnabled()) {
+                        logger.debug("AuthenticationProcessor called the update session.");
                     }
                     if (response.status.equals(GatewayHandlerResponse.Status.CONTINUE)) {
 
                         response = gatewayHandlerManager.getResponseHandler(authenticationContext)
                                 .buildResponse(authenticationContext);
-                        if (log.isDebugEnabled()) {
-                            log.debug("AuthenticationProcessor called the response handler.");
+                        if (logger.isDebugEnabled()) {
+                            logger.debug("AuthenticationProcessor called the response handler.");
                         }
                     }
                 }
             }
         } catch (GatewayServerException | GatewayClientException exception) {
             String errorMessage = "Error occurred in AuthenticationProcessor, " + exception.getMessage();
-            log.error(errorMessage, exception);
+            logger.error(errorMessage, exception);
             try {
                 response = gatewayHandlerManager.getResponseHandler(authenticationContext, exception).buildErrorResponse
                         (authenticationContext, exception);
             } catch (ResponseHandlerException e) {
                 errorMessage = "Error occurred while processing the response, " + e.getMessage();
-                log.error(errorMessage, e);
+                logger.error(errorMessage, e);
                 throw new GatewayRuntimeException(errorMessage, e);
             }
         } catch (GatewayRuntimeException exception) {
             String errorMessage = "Error occurred in AuthenticationProcessor, " + exception.getMessage();
-            log.error(errorMessage, exception);
+            logger.error(errorMessage, exception);
             try {
                 response = gatewayHandlerManager.getResponseHandler(authenticationContext, exception).buildErrorResponse
                         (authenticationContext, exception);
             } catch (ResponseHandlerException e) {
                 errorMessage = "Error occurred while processing the response, " + e.getMessage();
-                log.error(errorMessage, e);
+                logger.error(errorMessage, e);
                 throw new GatewayRuntimeException(errorMessage, e);
             }
         }
 
         AuthenticationContextCache.getInstance().put(authenticationRequest.getRequestKey(), authenticationContext);
-        if (log.isDebugEnabled()) {
-            log.debug("AuthenticationProcessor updated the authentication context.");
+        if (logger.isDebugEnabled()) {
+            logger.debug("AuthenticationProcessor updated the authentication context.");
         }
         return response.getGatewayResponseBuilder();
     }
@@ -156,7 +156,7 @@ public class AuthenticationProcessor extends GatewayProcessor<AuthenticationRequ
                         (AuthenticationContext) gatewayMessageContext;
                 if (authenticationContext == null) {
                     String errorMessage = "AuthenticationContext is not available for give state value.";
-                    log.error(errorMessage);
+                    logger.error(errorMessage);
                     throw new GatewayRuntimeException(errorMessage);
                 }
                 authenticationContext.setIdentityRequest(authenticationRequest);

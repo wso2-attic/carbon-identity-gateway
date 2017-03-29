@@ -30,14 +30,7 @@ import org.wso2.msf4j.Request;
 
 import javax.ws.rs.core.Response;
 
-public class SampleProtocolIdentityRequestBuilderFactory extends GatewayRequestBuilderFactory {
-
-    private static Logger log = LoggerFactory.getLogger(SampleProtocolIdentityRequestBuilderFactory.class);
-
-    @Override
-    public String getName() {
-        return "SampleIdentityRequestBuilderFactory";
-    }
+public class SampleProtocolGatewayRequestBuilderFactory extends GatewayRequestBuilderFactory {
 
     @Override
     public boolean canHandle(Request request) throws GatewayClientException, GatewayServerException {

@@ -48,8 +48,6 @@ import java.util.List;
  */
 public class ModelObjectTests {
 
-    private static final Logger log = LoggerFactory.getLogger(GatewayDAOTests.class);
-
     @Inject
     private BundleContext bundleContext;
 

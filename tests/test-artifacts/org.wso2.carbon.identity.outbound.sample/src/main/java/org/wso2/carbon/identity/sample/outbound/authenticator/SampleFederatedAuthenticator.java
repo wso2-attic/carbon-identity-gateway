@@ -34,10 +34,8 @@ import org.wso2.carbon.identity.sample.outbound.response.SampleProtocolRequestRe
 
 import java.io.UnsupportedEncodingException;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -45,17 +43,21 @@ import java.util.Set;
  */
 public class SampleFederatedAuthenticator extends AbstractApplicationAuthenticator implements FederatedApplicationAuthenticator {
 
-    private static Logger log = LoggerFactory.getLogger(SampleFederatedAuthenticator.class);
+    private static Logger logger = LoggerFactory.getLogger(SampleFederatedAuthenticator.class);
+
+    @Override
+    public String getDisplayKey() {
+        return "sample.federated.authenticator";
+    }
 
     @Override
     public String getName() {
         return "SampleFederatedAuthenticator";
     }
 
-
     @Override
-    public String getFriendlyName() {
-        return "SampleFederatedAuthenticator";
+    public boolean isRetryEnable(AuthenticationContext authenticationContext) {
+        return false;
     }
 
     @Override
@@ -86,7 +88,7 @@ public class SampleFederatedAuthenticator extends AbstractApplicationAuthenticat
 
         } catch (UnsupportedEncodingException e) {
             String error = "Error while accessing parameters, " + e.getMessage() ;
-            log.error(error , e);
+            logger.error(error , e);
             throw new GatewayRuntimeException(error,e);
         }
         context.getIdentityRequest().getBodyParameter("bodyParamName");

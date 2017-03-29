@@ -54,7 +54,7 @@ public class BasicAuthenticator {
 
     // extends AbstractApplicationAuthenticator implements LocalApplicationAuthenticator
   /*  public static final String IS_RETRY_ENABLE = "isRetryEnable";
-    private Logger log = LoggerFactory.getLogger(BasicAuthenticator.class);
+    private Logger logger = LoggerFactory.getLogger(BasicAuthenticator.class);
 
 
     @Override
@@ -91,7 +91,7 @@ public class BasicAuthenticator {
                         PasswordCallback[]{passwordCallback}, "PRIMARY");
             } catch (IdentityStoreException e) {
                 String error = "Error occurred while authetnicating the user," + e.getMessage();
-                log.error(error, e);
+                logger.error(error, e);
                 throw new GatewayRuntimeException(error, e);
             } catch (AuthenticationFailure authenticationFailure) {
                 throw new AuthenticationHandlerException("Authentication Failed.");
@@ -151,7 +151,7 @@ public class BasicAuthenticator {
                 throw new AuthenticationHandlerException("Authentication Failed.");
             } catch (IdentityStoreException e) {
                 String error = "Error occurred while authetnicating the user," + e.getMessage();
-                log.error(error, e);
+                logger.error(error, e);
                 throw new GatewayRuntimeException(error, e);
             } catch (AuthenticationFailure authenticationFailure) {
                 throw new AuthenticationHandlerException("Authentication Failed.", authenticationFailure);

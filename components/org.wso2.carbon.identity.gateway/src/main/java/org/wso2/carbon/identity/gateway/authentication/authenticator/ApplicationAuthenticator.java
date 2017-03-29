@@ -26,26 +26,9 @@ import org.wso2.carbon.identity.gateway.exception.AuthenticationHandlerException
  */
 public interface ApplicationAuthenticator {
 
-    public String getFriendlyName();
+    String getDisplayKey();
 
-    public String getName();
-
-
-    public default String getAuthenticatorInitEndpoint(AuthenticationContext authenticationContext) {
-        return "";
-    }
-
-
-    /**
-     * This method is to give the responsibility to tell the possibility of handle the request by the authenticator
-     * itself to the framework.
-     *
-     * @param authenticationContext Authentication Context
-     * @return Whether this authenticator can handle or not
-     */
-    public default boolean canHandle(AuthenticationContext authenticationContext) {
-        return true;
-    }
+    String getName();
 
     /**
      * process is the one we called in authenticator to do the authentication process.

@@ -54,7 +54,6 @@ import org.wso2.carbon.identity.gateway.handler.session.DefaultSessionHandler;
 import org.wso2.carbon.identity.gateway.handler.validator.AbstractRequestValidator;
 import org.wso2.carbon.identity.gateway.local.LocalAuthenticationRequestBuilderFactory;
 import org.wso2.carbon.identity.gateway.local.LocalAuthenticationResponseBuilderFactory;
-import org.wso2.carbon.identity.gateway.local.demo.BasicAuthenticator;
 import org.wso2.carbon.identity.gateway.processor.AuthenticationProcessor;
 import org.wso2.carbon.identity.gateway.service.GatewayClaimResolverService;
 import org.wso2.carbon.identity.gateway.store.IdentityProviderConfigStore;
@@ -77,7 +76,7 @@ import javax.sql.DataSource;
 )
 public class GatewayActivator {
 
-    private Logger log = LoggerFactory.getLogger(GatewayActivator.class);
+    private Logger logger = LoggerFactory.getLogger(GatewayActivator.class);
 
 
     @Activate
@@ -117,8 +116,8 @@ public class GatewayActivator {
         //GatewayServiceHolder.getInstance().setBundleContext(bundleContext);
 
 
-        if (log.isDebugEnabled()) {
-            log.debug("Application Authentication Framework bundle is activated");
+        if (logger.isDebugEnabled()) {
+            logger.debug("Application Authentication Framework bundle is activated");
         }
     }
 
@@ -147,11 +146,11 @@ public class GatewayActivator {
             GatewayServiceHolder.getInstance().getRequestPathApplicationAuthenticators()
                     .add((RequestPathApplicationAuthenticator) authenticator);
         } else {
-            log.error("Unsupported Authenticator found : " + authenticator.getName());
+            logger.error("Unsupported Authenticator found : " + authenticator.getName());
         }
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added application authenticator : " + authenticator.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added application authenticator : " + authenticator.getName());
         }
     }
 
@@ -165,8 +164,8 @@ public class GatewayActivator {
             GatewayServiceHolder.getInstance().getRequestPathApplicationAuthenticators().remove(authenticator);
         }
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed application authenticator : " + authenticator.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed application authenticator : " + authenticator.getName());
         }
     }
 
@@ -182,8 +181,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getRequestHandlers().add(abstractRequestValidator);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AuthenticationHandler : " + abstractRequestValidator.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AuthenticationHandler : " + abstractRequestValidator.getName());
         }
     }
 
@@ -191,8 +190,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getRequestHandlers().remove(abstractRequestValidator);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AuthenticationHandler : " + abstractRequestValidator.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AuthenticationHandler : " + abstractRequestValidator.getName());
         }
     }
 
@@ -208,8 +207,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getSessionHandlers().add(abstractSessionHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AuthenticationHandler : " + abstractSessionHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AuthenticationHandler : " + abstractSessionHandler.getName());
         }
     }
 
@@ -217,8 +216,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getSessionHandlers().remove(abstractSessionHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AuthenticationHandler : " + abstractSessionHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AuthenticationHandler : " + abstractSessionHandler.getName());
         }
     }
 
@@ -234,8 +233,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getAuthenticationHandlers().add(authenticationHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AuthenticationHandler : " + authenticationHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AuthenticationHandler : " + authenticationHandler.getName());
         }
     }
 
@@ -243,8 +242,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getAuthenticationHandlers().remove(authenticationHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AuthenticationHandler : " + authenticationHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AuthenticationHandler : " + authenticationHandler.getName());
         }
     }
 
@@ -260,8 +259,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getResponseHandlers().add(responseHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AbstractResponseHandler : " + responseHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AbstractResponseHandler : " + responseHandler.getName());
         }
     }
 
@@ -269,8 +268,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getResponseHandlers().remove(responseHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AbstractResponseHandler : " + responseHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AbstractResponseHandler : " + responseHandler.getName());
         }
     }
 
@@ -285,8 +284,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getSequenceBuildFactories().add(sequenceBuildFactory);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AbstractSequenceBuildFactory : " + sequenceBuildFactory.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AbstractSequenceBuildFactory : " + sequenceBuildFactory.getName());
         }
     }
 
@@ -294,8 +293,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getSequenceBuildFactories().remove(sequenceBuildFactory);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AbstractSequenceBuildFactory : " + sequenceBuildFactory.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AbstractSequenceBuildFactory : " + sequenceBuildFactory.getName());
         }
     }
 
@@ -310,8 +309,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getAuthenticationStepHandlers().add(authenticationStepHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AuthenticationStepHandler : " + authenticationStepHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AuthenticationStepHandler : " + authenticationStepHandler.getName());
         }
     }
 
@@ -319,8 +318,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getAuthenticationStepHandlers().remove(authenticationStepHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AuthenticationStepHandler : " + authenticationStepHandler.getName());
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AuthenticationStepHandler : " + authenticationStepHandler.getName());
         }
     }
 
@@ -335,8 +334,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().setClaimResolvingService(claimResolvingService);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added ClaimResolvingService : " + ClaimResolvingService.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added ClaimResolvingService : " + ClaimResolvingService.class);
         }
     }
 
@@ -344,8 +343,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().setClaimResolvingService(null);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed ClaimResolvingService : " + ClaimResolvingService.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed ClaimResolvingService : " + ClaimResolvingService.class);
         }
     }
 
@@ -361,8 +360,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().setProfileMgtService(profileMgtService);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added ProfileMgtService : " + ProfileMgtService.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added ProfileMgtService : " + ProfileMgtService.class);
         }
     }
 
@@ -370,8 +369,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().setProfileMgtService(null);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed ProfileMgtService : " + ProfileMgtService.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed ProfileMgtService : " + ProfileMgtService.class);
         }
     }
 
@@ -387,8 +386,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getExecutionHandlers().add(executionHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Added AbstractExecutionHandler : " + AbstractExecutionHandler.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Added AbstractExecutionHandler : " + AbstractExecutionHandler.class);
         }
     }
 
@@ -396,8 +395,8 @@ public class GatewayActivator {
 
         GatewayServiceHolder.getInstance().getExecutionHandlers().remove(executionHandler);
 
-        if (log.isDebugEnabled()) {
-            log.debug("Removed AbstractExecutionHandler : " + AbstractExecutionHandler.class);
+        if (logger.isDebugEnabled()) {
+            logger.debug("Removed AbstractExecutionHandler : " + AbstractExecutionHandler.class);
         }
     }
 
@@ -415,15 +414,15 @@ public class GatewayActivator {
                 JdbcTemplate jdbcTemplate = new JdbcTemplate(dsObject);
                 initializeDao(jdbcTemplate);
             } else {
-                log.error("Could not find WSO2CarbonDB");
+                logger.error("Could not find WSO2CarbonDB");
             }
         } catch (NamingException e) {
-            log.error("Error occurred while looking up the Datasource", e);
+            logger.error("Error occurred while looking up the Datasource", e);
         }
     }
 
     protected void onJNDIUnregister(JNDIContextManager jndiContextManager) {
-        log.info("Un-registering data sources");
+        logger.info("Un-registering data sources");
     }
 
     private void initializeDao(JdbcTemplate jdbcTemplate) {
@@ -439,14 +438,14 @@ public class GatewayActivator {
             policy = ReferencePolicy.DYNAMIC,
             unbind = "unsetRealmService")
     protected void setRealmService(RealmService realmService) {
-        if (log.isDebugEnabled()) {
-            log.debug("Setting the Realm Service");
+        if (logger.isDebugEnabled()) {
+            logger.debug("Setting the Realm Service");
         }
         GatewayServiceHolder.getInstance().setRealmService(realmService);
     }
 
     protected void unsetRealmService(RealmService realmService) {
-        log.debug("UnSetting the Realm Service");
+        logger.debug("UnSetting the Realm Service");
         GatewayServiceHolder.getInstance().setRealmService(null);
     }
 }

@@ -21,6 +21,7 @@
 package org.wso2.carbon.identity.gateway.service;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wso2.carbon.identity.claim.exception.ClaimResolvingServiceException;
 import org.wso2.carbon.identity.claim.exception.ProfileMgtServiceException;
 import org.wso2.carbon.identity.claim.mapping.profile.ClaimConfigEntry;
@@ -45,7 +46,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * operation.
  */
 public class GatewayClaimResolverService {
-    private static Logger log = org.slf4j.LoggerFactory.getLogger(GatewayHandlerManager.class);
+    private static Logger logger = LoggerFactory.getLogger(GatewayHandlerManager.class);
     private static GatewayClaimResolverService gatewayClaimResolverService = new GatewayClaimResolverService();
 
     private GatewayClaimResolverService() {
@@ -98,7 +99,7 @@ public class GatewayClaimResolverService {
             }
         } catch (ClaimResolvingServiceException | ProfileMgtServiceException e) {
             String errorMessage = "Error occurred while calling transformToNativeDialect, " + e.getMessage();
-            log.error(errorMessage, e);
+            logger.error(errorMessage, e);
         }
         return transformedClaims.get();
     }
@@ -140,7 +141,7 @@ public class GatewayClaimResolverService {
             });
         } catch (ClaimResolvingServiceException | ProfileMgtServiceException | GatewayServerException e) {
             String errorMessage = "Error occurred while calling transformToOtherDialect, " + e.getMessage();
-            log.error(errorMessage, e);
+            logger.error(errorMessage, e);
         }
 
         return transformedClaims;

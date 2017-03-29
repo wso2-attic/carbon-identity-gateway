@@ -100,7 +100,7 @@ public class AuthenticationRequest extends GatewayRequest {
     /**
      * AuthenticationRequestConstants is hold the constant to use for AuthenticationRequest.
      */
-    public static class AuthenticationRequestConstants extends IdentityRequestConstants {
+    public static class AuthenticationRequestConstants extends GatewayRequestConstants {
         public static final String AUTHENTICATOR_NAME = "authenticator";
         public static final String IDP_NAME = "idp";
         public static final String SESSION_KEY = "SIOWTOSW";

@@ -36,7 +36,7 @@ import org.wso2.carbon.identity.gateway.api.response.GatewayResponseBuilderFacto
 )
 public class GatewayAPIActivator {
 
-    private Logger log = LoggerFactory.getLogger(GatewayAPIActivator.class);
+    private Logger logger = LoggerFactory.getLogger(GatewayAPIActivator.class);
 
     @Activate
     protected void start(BundleContext bundleContext) throws Exception {
@@ -47,11 +47,11 @@ public class GatewayAPIActivator {
             bundleContext
                     .registerService(GatewayResponseBuilderFactory.class, new GatewayResponseBuilderFactory(), null);
 
-            if (log.isDebugEnabled()) {
-                log.debug("org.wso2.carbon.identity.gateway.api bundle is activated");
+            if (logger.isDebugEnabled()) {
+                logger.debug("org.wso2.carbon.identity.gateway.api bundle is activated");
             }
         } catch (Throwable e) {
-            log.error(e.getMessage());
+            logger.error(e.getMessage());
             throw e;
         }
     }

@@ -48,7 +48,7 @@ import java.util.Properties;
 
 public class GatewayAuthenticatorTests {
 
-    private static final Logger log = LoggerFactory.getLogger(GatewayAuthenticatorTests.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayAuthenticatorTests.class);
 
     @Inject
     private BundleContext bundleContext;
@@ -76,13 +76,6 @@ public class GatewayAuthenticatorTests {
     public void testLocalAuthenticatorInit() {
 
         LocalApplicationAuthenticator localApplicationAuthenticator = new LocalApplicationAuthenticator() {
-            @Override
-            public boolean canHandle(AuthenticationContext authenticationContext) {
-                if (authenticationContext.getParameter("localAuth") != null) {
-                    return true;
-                }
-                return false;
-            }
 
             @Override
             public AuthenticationResponse process(AuthenticationContext authenticationContext) throws
@@ -91,12 +84,17 @@ public class GatewayAuthenticatorTests {
             }
 
             @Override
-            public String getName() {
+            public boolean isRetryEnable(AuthenticationContext authenticationContext) {
+                return false;
+            }
+
+            @Override
+            public String getDisplayKey() {
                 return "SampleLocalAuthenticator";
             }
 
             @Override
-            public String getFriendlyName() {
+            public String getName() {
                 return "SampleLocalAuthenticator";
             }
 
@@ -104,7 +102,6 @@ public class GatewayAuthenticatorTests {
         Assert.assertEquals(localApplicationAuthenticator.getName(), "SampleLocalAuthenticator");
         AuthenticationContext authenticationContext = new AuthenticationContext(null);
         authenticationContext.addParameter("localAuth", true);
-        Assert.assertTrue(localApplicationAuthenticator.canHandle(authenticationContext));
     }
 
 
@@ -115,13 +112,6 @@ public class GatewayAuthenticatorTests {
     @Test
     public void testRequestPathAuthenticatorInit() {
         RequestPathApplicationAuthenticator localApplicationAuthenticator = new RequestPathApplicationAuthenticator() {
-            @Override
-            public boolean canHandle(AuthenticationContext authenticationContext) {
-                if (authenticationContext.getParameter("requestPath") != null) {
-                    return true;
-                }
-                return false;
-            }
 
             @Override
             public AuthenticationResponse process(AuthenticationContext authenticationContext) throws AuthenticationHandlerException {
@@ -129,22 +119,24 @@ public class GatewayAuthenticatorTests {
             }
 
             @Override
-            public String getName() {
+            public boolean isRetryEnable(AuthenticationContext authenticationContext) {
+                return false;
+            }
+
+            @Override
+            public String getDisplayKey() {
                 return "SampleRequestPathAuthenticator";
             }
 
             @Override
-            public String getFriendlyName() {
+            public String getName() {
                 return "SampleRequestPathAuthenticator";
             }
-
-
 
         };
         Assert.assertEquals(localApplicationAuthenticator.getName(), "SampleRequestPathAuthenticator");
         AuthenticationContext authenticationContext = new AuthenticationContext(null);
         authenticationContext.addParameter("requestPath", true);
-        Assert.assertTrue(localApplicationAuthenticator.canHandle(authenticationContext));
     }
 
 }

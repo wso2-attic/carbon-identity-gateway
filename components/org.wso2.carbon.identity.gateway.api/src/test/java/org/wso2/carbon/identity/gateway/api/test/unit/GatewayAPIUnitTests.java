@@ -86,7 +86,7 @@ public class GatewayAPIUnitTests {
         builder.addHeader("testHeader", "testHeaderValue");
         builder.addParameter("testParameter", "testParameterValue");
         builder.setContentType("application/json");
-        builder.setHttpMethod("GET");
+        builder.setMethod("GET");
         builder.setQueryString("param1=param1value&param2=param2value");
         builder.setRequestURI("gateway/someContext");
         GatewayRequest gatewayRequest = builder.build();

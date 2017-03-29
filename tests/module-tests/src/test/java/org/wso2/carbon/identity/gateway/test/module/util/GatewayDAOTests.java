@@ -57,7 +57,7 @@ import java.util.List;
 
 public class GatewayDAOTests {
 
-    private static final Logger log = LoggerFactory.getLogger(GatewayDAOTests.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayDAOTests.class);
     private final String RANDOM_KEY_1 = "randomKey1";
     private final String RANDOM_KEY_2 = "randomKey2";
     private final String RANDOM_KEY_3 = "randomKey3";
@@ -95,10 +95,10 @@ public class GatewayDAOTests {
                 JdbcTemplate jdbcTemplate = new JdbcTemplate(dsObject);
                 initializeDao(jdbcTemplate);
             } else {
-                log.error("Could not find WSO2CarbonDB");
+                logger.error("Could not find WSO2CarbonDB");
             }
         } catch (NamingException e) {
-            log.error("Error occurred while looking up the Datasource", e);
+            logger.error("Error occurred while looking up the Datasource", e);
         }
 
     }

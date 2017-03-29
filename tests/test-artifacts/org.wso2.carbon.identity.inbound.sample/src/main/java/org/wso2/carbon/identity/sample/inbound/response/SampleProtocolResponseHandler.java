@@ -60,11 +60,8 @@ public class SampleProtocolResponseHandler extends AbstractResponseHandler {
 
         SampleLoginResponse.SampleLoginResponseBuilder builder = new SampleLoginResponse.SampleLoginResponseBuilder
                 (authenticationContext);
-        try {
-            builder.setSubject(getSubjectUser(authenticationContext).getUserIdentifier());
-        } catch (GatewayServerException e) {
-            logger.error("Error while getting subject");
-        }
+
+        builder.setSubject(getSubjectUser(authenticationContext).getUserIdentifier());
         setClaims(authenticationContext, builder);
         getResponseBuilderConfigs(authenticationContext);
         addSessionKey(builder, authenticationContext);
@@ -75,12 +72,12 @@ public class SampleProtocolResponseHandler extends AbstractResponseHandler {
     @Override
     public boolean canHandle(MessageContext messageContext, GatewayException exception) {
 
-        AuthenticationContext authenticationContext = (AuthenticationContext)messageContext;
+        AuthenticationContext authenticationContext = (AuthenticationContext) messageContext;
         String generateGatewayClientException = authenticationContext.getIdentityRequest().getParameter
                 ("generateClientException");
         String exceptionInCanHandle = authenticationContext.getIdentityRequest().getParameter
                 ("exceptionInCanHandle");
-        if(StringUtils.isNotBlank(generateGatewayClientException) && StringUtils.isNotBlank(exceptionInCanHandle)){
+        if (StringUtils.isNotBlank(generateGatewayClientException) && StringUtils.isNotBlank(exceptionInCanHandle)){
             throw new GatewayRuntimeException("Checked the exception for generate the generateClientException.");
         }
         return true;
@@ -90,12 +87,12 @@ public class SampleProtocolResponseHandler extends AbstractResponseHandler {
     public boolean canHandle(MessageContext messageContext, GatewayRuntimeException exception)
     {
 
-        AuthenticationContext authenticationContext = (AuthenticationContext)messageContext;
+        AuthenticationContext authenticationContext = (AuthenticationContext) messageContext;
         String generateRuntimeException = authenticationContext.getIdentityRequest().getParameter
                 ("generateRuntimeException");
         String exceptionInCanHandle = authenticationContext.getIdentityRequest().getParameter
                 ("exceptionInCanHandle");
-        if(StringUtils.isNotBlank(generateRuntimeException) && StringUtils.isNotBlank(exceptionInCanHandle)){
+        if (StringUtils.isNotBlank(generateRuntimeException) && StringUtils.isNotBlank(exceptionInCanHandle)){
             throw new GatewayRuntimeException("Checked the exception for generate the generateRuntimeException.");
         }
 

@@ -35,7 +35,7 @@ import java.util.concurrent.LinkedBlockingDeque;
  */
 public class AsyncGatewayContextDAO extends GatewayContextDAO {
 
-    private static final Logger log = LoggerFactory.getLogger(AsyncGatewayContextDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(AsyncGatewayContextDAO.class);
 
     private static GatewayContextDAO instance = new AsyncGatewayContextDAO();
     private GatewayContextDAO persistentDAO = JDBCGatewayContextDAO.getInstance();
@@ -50,8 +50,8 @@ public class AsyncGatewayContextDAO extends GatewayContextDAO {
         String poolSizeConfig = "2";
         if (NumberUtils.isNumber(poolSizeConfig)) {
             poolSize = Integer.parseInt(poolSizeConfig);
-            if (log.isDebugEnabled()) {
-                log.debug("Thread pool size for Session Async DAO: " + poolSizeConfig);
+            if (logger.isDebugEnabled()) {
+                logger.debug("Thread pool size for Session Async DAO: " + poolSizeConfig);
             }
         }
         if (poolSize > 0) {

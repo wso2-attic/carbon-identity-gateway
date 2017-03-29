@@ -18,6 +18,8 @@
 package org.wso2.carbon.identity.gateway.handler.response;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.wso2.carbon.identity.common.base.message.MessageContext;
 import org.wso2.carbon.identity.gateway.api.exception.GatewayException;
 import org.wso2.carbon.identity.gateway.api.exception.GatewayRuntimeException;
@@ -32,6 +34,7 @@ import org.wso2.carbon.identity.gateway.exception.AuthenticationHandlerException
 import org.wso2.carbon.identity.gateway.exception.ResponseHandlerException;
 import org.wso2.carbon.identity.gateway.exception.ServiceProviderIdNotSetException;
 import org.wso2.carbon.identity.gateway.handler.GatewayHandlerResponse;
+import org.wso2.carbon.identity.gateway.internal.GatewayActivator;
 import org.wso2.carbon.identity.gateway.model.User;
 import org.wso2.carbon.identity.gateway.request.AuthenticationRequest;
 import org.wso2.carbon.identity.gateway.service.GatewayClaimResolverService;
@@ -46,6 +49,8 @@ import java.util.Set;
  * AbstractResponseHandler is handle the response based on the request type.
  */
 public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
+
+    private Logger logger = LoggerFactory.getLogger(AbstractResponseHandler.class);
 
     /**
      * Build Error Response based on GatewayException and AuthenticationContext.
@@ -130,8 +135,15 @@ public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
                 .SESSION_KEY));
     }
 
-    protected User getSubjectUser(AuthenticationContext context) throws GatewayServerException {
-        return context.getSubjectUser();
+    protected User getSubjectUser(AuthenticationContext context) {
+
+        User subject = null;
+        try {
+            subject = context.getSubjectUser();
+        } catch (GatewayServerException e) {
+            logger.error(e.getMessage(), e);
+        }
+        return subject;
     }
 
     protected Claim getSubjectClaim(AuthenticationContext context) {

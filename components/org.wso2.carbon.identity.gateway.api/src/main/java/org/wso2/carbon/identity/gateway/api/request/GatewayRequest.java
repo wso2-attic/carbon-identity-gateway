@@ -42,7 +42,7 @@ public class GatewayRequest implements Serializable {
 
     private static final long serialVersionUID = 5418537216546873566L;
 
-    private static Logger log = LoggerFactory.getLogger(GatewayRequest.class);
+    private static Logger logger = LoggerFactory.getLogger(GatewayRequest.class);
     protected Map<String, Serializable> headers = new HashMap<>();
     protected Map<String, Serializable> parameters = new HashMap<>();
     protected Map<String, Serializable> attributes = new HashMap();
@@ -55,7 +55,7 @@ public class GatewayRequest implements Serializable {
         this.headers = builder.headers;
         this.parameters = builder.parameters;
         this.attributes = builder.attributes;
-        this.httpMethod = builder.httpMethod;
+        this.httpMethod = builder.method;
         this.requestURI = builder.requestURI;
         this.contentType = builder.contentType;
         this.queryString = builder.queryString;
@@ -91,7 +91,7 @@ public class GatewayRequest implements Serializable {
         return Collections.emptyEnumeration();
     }
 
-    public String getHttpMethod() {
+    public String getMethod() {
         return httpMethod;
     }
 
@@ -109,7 +109,7 @@ public class GatewayRequest implements Serializable {
                     decode = URLDecoder.decode(queryParams.get(paramName), StandardCharsets.UTF_8.name());
                 } catch (UnsupportedEncodingException e) {
                     String errorMessage = "Error occurred while decoding the parameter value, " + paramName ;
-                    log.error(errorMessage, e);
+                    logger.error(errorMessage, e);
                     throw new GatewayRuntimeException(errorMessage, e);
                 }
             }
@@ -138,7 +138,7 @@ public class GatewayRequest implements Serializable {
         private Map<String, Serializable> headers = new HashMap();
         private Map<String, Serializable> parameters = new HashMap();
         private Map<String, Serializable> attributes = new HashMap();
-        private String httpMethod;
+        private String method;
         private String requestURI;
         private String contentType;
         private String queryString;
@@ -146,7 +146,7 @@ public class GatewayRequest implements Serializable {
         public GatewayRequestBuilder addAttribute(String name, Serializable value) {
             if (this.attributes.containsKey(name)) {
                 String errorMessage = "Attributes map trying to override existing key: " + name;
-                log.error(errorMessage);
+                logger.error(errorMessage);
                 throw new GatewayRuntimeException(errorMessage);
             }
             this.attributes.put(name, value);
@@ -157,7 +157,7 @@ public class GatewayRequest implements Serializable {
         public GatewayRequestBuilder addHeader(String name, String value) {
             if (this.headers.containsKey(name)) {
                 String errorMessage = "Headers map trying to override existing header: " + name;
-                log.error(errorMessage);
+                logger.error(errorMessage);
                 throw new GatewayRuntimeException(errorMessage);
             }
             this.headers.put(name, value);
@@ -168,7 +168,7 @@ public class GatewayRequest implements Serializable {
         public GatewayRequestBuilder addParameter(String name, Serializable value) {
             if (this.parameters.containsKey(name)) {
                 String errorMessage = "Parameters map trying to override existing key: " + name;
-                log.error(errorMessage);
+                logger.error(errorMessage);
                 throw new GatewayRuntimeException(errorMessage);
             }
             this.parameters.put(name, value);
@@ -196,8 +196,8 @@ public class GatewayRequest implements Serializable {
         }
 
 
-        public GatewayRequestBuilder setHttpMethod(String httpMethod) {
-            this.httpMethod = httpMethod;
+        public GatewayRequestBuilder setMethod(String method) {
+            this.method = method;
             return this;
         }
 
@@ -217,7 +217,7 @@ public class GatewayRequest implements Serializable {
     /**
      * Constants for this request type.
      */
-    public static class IdentityRequestConstants {
+    public static class GatewayRequestConstants {
 
     }
 

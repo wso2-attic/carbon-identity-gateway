@@ -30,7 +30,7 @@ import java.util.concurrent.BlockingDeque;
  */
 public class SessionPersistenceTask implements Runnable {
 
-    private static Logger log = LoggerFactory.getLogger(SessionPersistenceTask.class);
+    private static Logger logger = LoggerFactory.getLogger(SessionPersistenceTask.class);
 
     private BlockingDeque<SessionJob> sessionJobQueue;
     private SessionDAO persistentDAO;
@@ -43,8 +43,8 @@ public class SessionPersistenceTask implements Runnable {
     @Override
     public void run() {
 
-        if (log.isDebugEnabled()) {
-            log.debug("SessionPersistenceTask is started");
+        if (logger.isDebugEnabled()) {
+            logger.debug("SessionPersistenceTask is started");
         }
 
         while (true) {
@@ -59,7 +59,7 @@ public class SessionPersistenceTask implements Runnable {
                     }
                 }
             } catch (InterruptedException | GatewayRuntimeException e) {
-                log.error("Error occurred while running task for SessionJob", e);
+                logger.error("Error occurred while running task for SessionJob", e);
             }
         }
     }

@@ -46,7 +46,7 @@ import javax.ws.rs.core.Response;
  * framework and return 500.
  */
 public class GatewayManager {
-    private Logger log = LoggerFactory.getLogger(GatewayManager.class);
+    private Logger logger = LoggerFactory.getLogger(GatewayManager.class);
 
     /**
      * Main execution point of the gateway resource manager.
@@ -69,13 +69,13 @@ public class GatewayManager {
             return builder.build();
         } catch (GatewayClientException exception) {
 
-            log.error("Error occurred while building the request, " + exception);
+            logger.error("Error occurred while building the request, " + exception);
             return factory.handleException(exception).build();
         } catch (RuntimeException exception) {
 
-            log.error("Error occurred while processing the request" + exception);
+            logger.error("Error occurred while processing the request" + exception);
             if (factory == null) {
-                log.error("Error occurred while finding a request factory for the request : " + exception);
+                logger.error("Error occurred while finding a request factory for the request : " + exception);
                 Response.ResponseBuilder builder = handleException(exception);
                 return builder.build();
             }
@@ -115,8 +115,8 @@ public class GatewayManager {
                     return requestProcessor;
                 }
             } catch (Exception e) {
-                log.error("Error occurred while checking if " + requestProcessor.getName() + " can handle " +
-                        gatewayRequest.toString());
+                logger.error("Error occurred while checking if " + requestProcessor.getName() + " can handle " +
+                             gatewayRequest.toString());
             }
         }
         throw new GatewayRuntimeException("No GatewayProcessor found to process the request.");
@@ -140,7 +140,7 @@ public class GatewayManager {
                     return requestBuilder;
                 }
             } catch (GatewayException e) {
-                log.error("Error occurred while checking the can handle in GatewayRequestBuilderFactory, " + e
+                logger.error("Error occurred while checking the can handle in GatewayRequestBuilderFactory, " + e
                         .getMessage(), e);
             }
         }

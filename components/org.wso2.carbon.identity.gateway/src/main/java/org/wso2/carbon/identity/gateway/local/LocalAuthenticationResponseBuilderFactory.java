@@ -30,8 +30,6 @@ import java.net.URLEncoder;
 
 public class LocalAuthenticationResponseBuilderFactory extends GatewayResponseBuilderFactory {
 
-    private static Logger log = LoggerFactory.getLogger(LocalAuthenticationResponseBuilderFactory.class);
-
     public boolean canHandle(GatewayResponse gatewayResponse) {
         return gatewayResponse instanceof LocalAuthenticationResponse;
     }

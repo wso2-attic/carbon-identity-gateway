@@ -39,7 +39,7 @@ import javax.ws.rs.core.Response;
 
 public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayRequestBuilder> extends AbstractHandler {
 
-    private Logger log = LoggerFactory.getLogger(GatewayRequestBuilderFactory.class);
+    private Logger logger = LoggerFactory.getLogger(GatewayRequestBuilderFactory.class);
 
     /**
      * This is default can handler true if there are no any extended type of the factory in the factory registry.
@@ -79,10 +79,10 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
             builder.addHeader(header.getName(), header.getValue());
         });
 
-        builder.setHttpMethod(request.getHttpMethod());
+        builder.setMethod(request.getHttpMethod());
         builder.setContentType(request.getContentType());
         builder.setRequestURI(request.getUri());
-        builder.setHttpMethod(request.getHttpMethod());
+        builder.setMethod(request.getHttpMethod());
         builder.setAttributes((Map) request.getProperties());
         builder.addParameter(Constants.QUERY_PARAMETERS,
                 (Serializable) request.getProperty(Constants.QUERY_PARAMETERS));
@@ -94,8 +94,8 @@ public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayReques
         } else {
             builder.setQueryString(queryStringParams[0]);
         }
-        if (log.isDebugEnabled()) {
-            log.debug("Successfully Updated the request builder in GatewayRequestBuilderFactory.");
+        if (logger.isDebugEnabled()) {
+            logger.debug("Successfully Updated the request builder in GatewayRequestBuilderFactory.");
         }
     }
 

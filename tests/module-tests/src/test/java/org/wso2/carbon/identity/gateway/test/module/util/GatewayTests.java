@@ -67,7 +67,7 @@ import java.util.Set;
 @ExamReactorStrategy(PerSuite.class)
 public class GatewayTests {
 
-    private static final Logger log = LoggerFactory.getLogger(GatewayTests.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayTests.class);
 
     @Inject
     private BundleContext bundleContext;
@@ -387,7 +387,7 @@ public class GatewayTests {
             Assert.assertNull(locationHeader);
             Assert.assertEquals(urlConnection.getResponseCode(), 500);
         } catch (IOException e) {
-            log.error("Error while running federated authentication test case", e);
+            logger.error("Error while running federated authentication test case", e);
         }
     }
 
@@ -403,7 +403,7 @@ public class GatewayTests {
             Assert.assertNull(locationHeader);
             Assert.assertTrue(urlConnection.getResponseCode() == 500);
         } catch (IOException e) {
-            log.error("Error while running federated authentication test case", e);
+            logger.error("Error while running federated authentication test case", e);
         }
     }
 
@@ -441,7 +441,7 @@ public class GatewayTests {
                     "=" + GatewayTestConstants.AUTHENTICATED_USER_NAME));
 
         } catch (IOException e) {
-            log.error("Error while running sso cookie authentication test case", e);
+            logger.error("Error while running sso cookie authentication test case", e);
         }
     }
 
@@ -620,7 +620,7 @@ public class GatewayTests {
             serviceProviderDeployer.update(artifact);
             Assert.fail("An error should occur while trying to update wrong artifact");
         } catch (CarbonDeploymentException e) {
-            log.info("failed service provider deployment from non existing file");
+            logger.info("failed service provider deployment from non existing file");
         }
     }
 
@@ -650,7 +650,7 @@ public class GatewayTests {
             identityProviderDeployer.update(artifact);
             Assert.fail("Expected an error while updating non existing identity provider");
         } catch (CarbonDeploymentException e) {
-            log.info("Non existing idp deployment failed");
+            logger.info("Non existing idp deployment failed");
         }
     }
 

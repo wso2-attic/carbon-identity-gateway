@@ -133,12 +133,16 @@ public class GatewayClaimResolverService {
             }
 
             Map<String, String> claimMapping = claimResolvingService.getClaimMapping(dialect);
-            claimMapping.forEach((applicationClaimUri, nativeClaimUri) -> {
-                if (claimMap.containsKey(nativeClaimUri)) {
-                    Claim claim = new Claim(dialect, applicationClaimUri, claimMap.get(nativeClaimUri).getValue());
-                    transformedClaims.add(claim);
-                }
-            });
+            // Ideally an empty map should be passed. But here a null is passed instead.
+            if (claimMapping != null) {
+                claimMapping.forEach((applicationClaimUri, nativeClaimUri) -> {
+                    if (claimMap.containsKey(nativeClaimUri)) {
+                        Claim claim = new Claim(dialect, applicationClaimUri, claimMap.get(nativeClaimUri).getValue());
+                        transformedClaims.add(claim);
+                    }
+                });
+            }
+
         } catch (ClaimResolvingServiceException | ProfileMgtServiceException | GatewayServerException e) {
             String errorMessage = "Error occurred while calling transformToOtherDialect, " + e.getMessage();
             logger.error(errorMessage, e);

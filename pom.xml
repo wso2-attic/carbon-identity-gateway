@@ -547,7 +547,7 @@
         <xalan.version>2.7.1.wso2v1</xalan.version>
         <org.jacoco.ant.version>0.7.5.201505241946</org.jacoco.ant.version>
         <maven.paxexam.plugin.version>1.2.4</maven.paxexam.plugin.version>
-        <jacoco.version>0.7.7.201606060606</jacoco.version>
+        <jacoco.version>0.8.3</jacoco.version>
         <netty.version>4.0.30.Final</netty.version>
         <org.wso2.carbon.caching.version>1.0.0</org.wso2.carbon.caching.version>
         <com.h2database.h2.version>1.4.191</com.h2database.h2.version>

@@ -552,7 +552,7 @@
         <org.wso2.carbon.caching.version>1.0.0</org.wso2.carbon.caching.version>
         <com.h2database.h2.version>1.4.191</com.h2database.h2.version>
         <carbon.transport.http.netty.version>2.1.4</carbon.transport.http.netty.version>
-        <disruptor.wso2.version>3.3.2.wso2v2</disruptor.wso2.version>
+        <disruptor.wso2.version>3.4.2.wso2v1</disruptor.wso2.version>
         <msf4j.version>2.1.0</msf4j.version>
         <net.minidev.asm.version>1.0.2</net.minidev.asm.version>
         <org.wso2.carbon.lcm.version>1.0.0</org.wso2.carbon.lcm.version>

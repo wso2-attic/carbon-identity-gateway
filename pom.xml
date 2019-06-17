@@ -533,7 +533,7 @@
         <commons.codec.version>1.4.0.wso2v1</commons.codec.version>
         <carbon.osgi.test.util.version>5.1.0</carbon.osgi.test.util.version>
         <testng.version>6.9.4</testng.version>
-        <javax.inject.version>1</javax.inject.version>
+        <javax.inject.version>1.0-PFD-1</javax.inject.version>
         <pax.url.version>2.4.7</pax.url.version>
         <ow2.jta.spec.version>1.0.12</ow2.jta.spec.version>
         <pax.logging.version>1.8.5</pax.logging.version>

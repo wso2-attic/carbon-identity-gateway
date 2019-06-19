@@ -21,7 +21,7 @@
         <groupId>org.wso2.carbon.identity.gateway</groupId>
         <artifactId>org.wso2.carbon.identity.gateway.tests</artifactId>
         <relativePath>../pom.xml</relativePath>
-        <version>0.1.5</version>
+        <version>0.1.6-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>

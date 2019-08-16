@@ -54,7 +54,7 @@ public class BasicAuthenticator {
 
     // extends AbstractApplicationAuthenticator implements LocalApplicationAuthenticator
   /*  public static final String IS_RETRY_ENABLE = "isRetryEnable";
-    private Logger logger = LoggerFactory.getLogger(BasicAuthenticator.class);
+    private static final Logger logger = LoggerFactory.getLogger(BasicAuthenticator.class);
 
 
     @Override

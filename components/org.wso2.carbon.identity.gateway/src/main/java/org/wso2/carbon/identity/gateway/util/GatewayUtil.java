@@ -40,7 +40,7 @@ import java.util.Map;
 
 public class GatewayUtil {
 
-    private static Logger logger = LoggerFactory.getLogger(GatewayUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayUtil.class);
 
     /**
      * Read provide name by using file name.

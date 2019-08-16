@@ -30,7 +30,7 @@ import java.util.concurrent.BlockingDeque;
  */
 public class SessionPersistenceTask implements Runnable {
 
-    private static Logger logger = LoggerFactory.getLogger(SessionPersistenceTask.class);
+    private static final Logger logger = LoggerFactory.getLogger(SessionPersistenceTask.class);
 
     private BlockingDeque<SessionJob> sessionJobQueue;
     private SessionDAO persistentDAO;

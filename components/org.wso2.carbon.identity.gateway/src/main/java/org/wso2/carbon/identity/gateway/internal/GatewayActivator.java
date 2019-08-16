@@ -76,7 +76,7 @@ import javax.sql.DataSource;
 )
 public class GatewayActivator {
 
-    private Logger logger = LoggerFactory.getLogger(GatewayActivator.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayActivator.class);
 
 
     @Activate

@@ -40,7 +40,7 @@ import java.util.Set;
 
 public class SampleProtocolResponseHandler extends AbstractResponseHandler {
 
-    Logger logger = LoggerFactory.getLogger(SampleProtocolResponseHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(SampleProtocolResponseHandler.class);
     @Override
     public GatewayHandlerResponse buildErrorResponse(AuthenticationContext authenticationContext,
                                                      GatewayException exception) throws ResponseHandlerException {

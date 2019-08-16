@@ -42,7 +42,7 @@ import java.nio.file.Paths;
 public class IdentityProviderDeployer implements Deployer {
 
     private static final String IDENTITY_PROVIDER_TYPE = "identityprovider";
-    private Logger logger = LoggerFactory.getLogger(IdentityProviderDeployer.class);
+    private static final Logger logger = LoggerFactory.getLogger(IdentityProviderDeployer.class);
     private ArtifactType artifactType;
     private URL repository;
 

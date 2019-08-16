@@ -43,7 +43,7 @@ import java.util.Collections;
 )
 public class GatewayResourceComponent {
 
-    private Logger logger = LoggerFactory.getLogger(GatewayResourceComponent.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayResourceComponent.class);
 
     @Activate
     protected void start(BundleContext bundleContext) throws Exception {

@@ -38,7 +38,7 @@ import java.util.List;
 public class GatewayHandlerManager {
 
 
-    private static Logger logger = LoggerFactory.getLogger(GatewayHandlerManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayHandlerManager.class);
     private static volatile GatewayHandlerManager instance = new GatewayHandlerManager();
 
     private GatewayHandlerManager() {

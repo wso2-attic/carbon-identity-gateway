@@ -36,7 +36,7 @@ import org.wso2.carbon.identity.gateway.api.response.GatewayResponseBuilderFacto
 )
 public class GatewayAPIActivator {
 
-    private Logger logger = LoggerFactory.getLogger(GatewayAPIActivator.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayAPIActivator.class);
 
     @Activate
     protected void start(BundleContext bundleContext) throws Exception {

@@ -44,7 +44,7 @@ import java.nio.file.Paths;
 public class ServiceProviderDeployer implements Deployer {
 
     private static final String SERVICE_PROVIDER_TYPE = "serviceprovider";
-    private Logger logger = LoggerFactory.getLogger(GatewayActivator.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayActivator.class);
     private ArtifactType artifactType;
     private URL repository;
 

@@ -30,7 +30,7 @@ import java.util.concurrent.BlockingDeque;
  */
 public class GatewayContextPersistenceTask implements Runnable {
 
-    private static Logger logger = LoggerFactory.getLogger(GatewayContextPersistenceTask.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayContextPersistenceTask.class);
 
     private BlockingDeque<IdentityContextJob> identityContextJobQueue;
     private GatewayContextDAO persistentDAO;

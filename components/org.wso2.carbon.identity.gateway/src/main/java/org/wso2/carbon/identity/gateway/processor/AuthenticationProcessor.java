@@ -41,7 +41,7 @@ import org.wso2.carbon.identity.gateway.request.ClientAuthenticationRequest;
  */
 public class AuthenticationProcessor extends GatewayProcessor<AuthenticationRequest> {
 
-    private static Logger logger = org.slf4j.LoggerFactory.getLogger(AuthenticationProcessor.class);
+    private static final Logger logger = org.slf4j.LoggerFactory.getLogger(AuthenticationProcessor.class);
 
     @Override
     public boolean canHandle(GatewayRequest gatewayRequest) {

@@ -46,7 +46,7 @@ import javax.ws.rs.core.Response;
  * framework and return 500.
  */
 public class GatewayManager {
-    private Logger logger = LoggerFactory.getLogger(GatewayManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayManager.class);
 
     /**
      * Main execution point of the gateway resource manager.

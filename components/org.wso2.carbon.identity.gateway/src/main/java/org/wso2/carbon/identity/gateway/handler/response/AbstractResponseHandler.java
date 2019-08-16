@@ -50,7 +50,7 @@ import java.util.Set;
  */
 public abstract class AbstractResponseHandler extends AbstractGatewayHandler {
 
-    private Logger logger = LoggerFactory.getLogger(AbstractResponseHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(AbstractResponseHandler.class);
 
     /**
      * Build Error Response based on GatewayException and AuthenticationContext.

@@ -46,7 +46,7 @@ import java.util.concurrent.atomic.AtomicReference;
  * operation.
  */
 public class GatewayClaimResolverService {
-    private static Logger logger = LoggerFactory.getLogger(GatewayHandlerManager.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayHandlerManager.class);
     private static GatewayClaimResolverService gatewayClaimResolverService = new GatewayClaimResolverService();
 
     private GatewayClaimResolverService() {

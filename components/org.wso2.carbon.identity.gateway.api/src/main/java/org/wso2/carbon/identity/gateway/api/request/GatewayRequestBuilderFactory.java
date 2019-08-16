@@ -39,7 +39,7 @@ import javax.ws.rs.core.Response;
 
 public class GatewayRequestBuilderFactory<T extends GatewayRequest.GatewayRequestBuilder> extends AbstractHandler {
 
-    private Logger logger = LoggerFactory.getLogger(GatewayRequestBuilderFactory.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayRequestBuilderFactory.class);
 
     /**
      * This is default can handler true if there are no any extended type of the factory in the factory registry.

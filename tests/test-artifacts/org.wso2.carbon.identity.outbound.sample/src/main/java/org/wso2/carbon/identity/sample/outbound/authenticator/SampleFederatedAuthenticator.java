@@ -43,7 +43,7 @@ import java.util.Set;
  */
 public class SampleFederatedAuthenticator extends AbstractApplicationAuthenticator implements FederatedApplicationAuthenticator {
 
-    private static Logger logger = LoggerFactory.getLogger(SampleFederatedAuthenticator.class);
+    private static final Logger logger = LoggerFactory.getLogger(SampleFederatedAuthenticator.class);
 
     @Override
     public String getDisplayKey() {

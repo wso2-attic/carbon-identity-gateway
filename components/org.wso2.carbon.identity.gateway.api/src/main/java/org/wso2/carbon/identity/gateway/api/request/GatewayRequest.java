@@ -42,7 +42,7 @@ public class GatewayRequest implements Serializable {
 
     private static final long serialVersionUID = 5418537216546873566L;
 
-    private static Logger logger = LoggerFactory.getLogger(GatewayRequest.class);
+    private static final Logger logger = LoggerFactory.getLogger(GatewayRequest.class);
     protected Map<String, Serializable> headers = new HashMap<>();
     protected Map<String, Serializable> parameters = new HashMap<>();
     protected Map<String, Serializable> attributes = new HashMap();

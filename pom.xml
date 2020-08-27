@@ -26,7 +26,7 @@
     <groupId>org.wso2.carbon.identity.gateway</groupId>
     <artifactId>carbon-identity-gateway</artifactId>
     <packaging>pom</packaging>
-    <version>0.1.8-SNAPSHOT</version>
+    <version>0.1.8</version>
     <name>WSO2 Carbon - Identity Gateway</name>
     <url>http://wso2.org</url>
 
@@ -34,7 +34,7 @@
         <url>https://github.com/wso2/carbon-identity-gateway.git</url>
         <developerConnection>scm:git:https://github.com/wso2/carbon-identity-gateway.git</developerConnection>
         <connection>scm:git:https://github.com/wso2/carbon-identity-gateway.git</connection>
-        <tag>HEAD</tag>
+        <tag>v0.1.8</tag>
     </scm>
 
     <modules>

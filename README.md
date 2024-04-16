@@ -1,3 +1,7 @@
+# This repository is no longer maintained.
+Issue reports and pull requests will not be attended.
+
+
 # Identity Framework on C5 [PoC]
 
 <p>
